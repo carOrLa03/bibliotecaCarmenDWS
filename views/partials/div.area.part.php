@@ -11,8 +11,9 @@
 <body>
     <div class="hero_area">
         <div class="bg-box">
-            <img src="images/hero-bg.jpg" alt="">
+            <img src="images/library.jpg" alt="LIBRERIA">
         </div>
+    </div>
 </body>
 
 </html>

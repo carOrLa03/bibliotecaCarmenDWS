@@ -1,19 +1,11 @@
 <?php
 
-$pag = $_SERVER['REQUEST_URI'];
-echo $pag;
-function isActive()
+// funcion para que cambie el color del menu en función de donde nos encontramos
+function isActive($currect_page)
 {
-    if ($_SERVER['REQUEST_URI'] === "index.php") {
-        return true;
-    }
-    if ($_SERVER['REQUEST_URI'] === "menu.php") {
-        return true;
-    }
-    if ($_SERVER['REQUEST_URI'] === "about.php") {
-        return true;
-    }
-    if ($_SERVER['REQUEST_URI'] === "book.php") {
-        return true;
+    $url_array = explode('/', $_SERVER['REQUEST_URI']);
+    $url = end($url_array);
+    if ($currect_page == $url) {
+        echo 'active';
     }
 }

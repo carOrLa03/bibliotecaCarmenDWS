@@ -7,13 +7,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <!-- Mobile Metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Site Metas -->
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
-  <link rel="shortcut icon" href="images/favicon.png" type="">
-
-  <title> Biblioteca</title>
   <?php
   require_once "./views/partials/links.part.php";
   ?>
@@ -21,15 +14,17 @@
 
 <body>
 
+
+  <!-- header section strats -->
   <?php
   require_once "./views/partials/div.area.part.php";
   ?>
-  <!-- header section strats -->
   <header class="header_section">
     <?php
     require_once "./views/partials/menu.part.php";
     ?>
   </header>
+  </div>
   <!-- end header section -->
   <!-- slider section -->
   <section class="slider_section ">
@@ -41,7 +36,7 @@
               <div class="col-md-7 col-lg-6 ">
                 <div class="detail-box">
                   <h1>
-                    Fast Food Restaurant
+                    BUSCA TU LIBRO FAVORITO
                   </h1>
                   <p>
                     Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
@@ -62,7 +57,7 @@
               <div class="col-md-7 col-lg-6 ">
                 <div class="detail-box">
                   <h1>
-                    Fast Food Restaurant
+                    LOGUEATE
                   </h1>
                   <p>
                     Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
@@ -83,7 +78,7 @@
               <div class="col-md-7 col-lg-6 ">
                 <div class="detail-box">
                   <h1>
-                    Fast Food Restaurant
+                    NO PARES DE LEER
                   </h1>
                   <p>
                     Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
@@ -121,7 +116,7 @@
           <div class="col-md-6  ">
             <div class="box ">
               <div class="img-box">
-                <img src="images/o1.jpg" alt="">
+                <img src="images/libro1.jpg" alt="">
               </div>
               <div class="detail-box">
                 <h5>
@@ -190,7 +185,7 @@
           <div class="col-md-6  ">
             <div class="box ">
               <div class="img-box">
-                <img src="images/o2.jpg" alt="">
+                <img src="images/libro2.jpg" alt="">
               </div>
               <div class="detail-box">
                 <h5>
