@@ -1,99 +1,46 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <!-- Basic -->
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <?php
-  require_once "./views/partials/links.part.php";
-  ?>
-
-</head>
-
-<body class="sub_page">
-
-  <?php
-  require_once "./views/partials/div.area.part.php";
-  ?>
-  <!-- header section strats -->
-  <header class="header_section">
-    <?php
-    require_once "./views/partials/menu.part.php";
-    ?>
-  </header>
-  <!-- book section -->
-  <section class="book_section layout_padding">
-    <div class="container">
-      <div class="heading_container">
-        <h2>
-          Book A Table
-        </h2>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="form_container">
-            <form action="">
-              <div>
-                <input type="text" class="form-control" placeholder="Your Name" />
-              </div>
-              <div>
-                <input type="text" class="form-control" placeholder="Phone Number" />
-              </div>
-              <div>
-                <input type="email" class="form-control" placeholder="Your Email" />
-              </div>
-              <div>
-                <select class="form-control nice-select wide">
-                  <option value="" disabled selected>
-                    How many persons?
-                  </option>
-                  <option value="">
-                    2
-                  </option>
-                  <option value="">
-                    3
-                  </option>
-                  <option value="">
-                    4
-                  </option>
-                  <option value="">
-                    5
-                  </option>
-                </select>
-              </div>
-              <div>
-                <input type="date" class="form-control">
-              </div>
-              <div class="btn_box">
-                <button>
-                  Book Now
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="map_container ">
-            <div id="googleMap"></div>
-          </div>
+<?php
+require_once("./views/partials/menu.part.php");
+require_once("./utils/validarForm.php");
+?>
+<!-- book section -->
+<section class="book_section layout_padding">
+  <div class="container">
+    <div class="heading_container">
+      <h2>
+        Contacta
+      </h2>
+    </div>
+    <div class="row">
+      <div class="col-md-7">
+        <div class="form_container">
+          <form action="#" method="post">
+            <div>
+              <label for="" class="form-label">Tu nombre</label>
+              <input type="text" class="form-control" pattern="[a-zA-Z]+" name="nombre" maxlength="20" value="<?php echo ($error != 'ok') ? $nombre : "" ?>" />
+            </div>
+            <div>
+              <label for="" class="form-label">Tu Email</label>
+              <input type="email" class="form-control" name="email" value="<?php echo ($error != 'ok') ? $mail : "" ?>" />
+            </div>
+            <div class="mb-3">
+              <label for="" class="form-label">Escribe tu comentario</label>
+              <textarea class="form-control" id="" rows="10" name="textArea"></textarea>
+            </div>
+            <div class="btn_box">
+              <button>
+                Envía
+              </button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
-  </section>
-  <!-- end book section -->
+  </div>
+</section>
+<!-- end book section -->
 
-  <!-- footer section -->
-  <?php
-  require_once "./views/partials/footer.part.php";
-  ?>
-  <!-- footer section -->
-  <?php
-  require_once "./views/partials/scripts.part.php";
-  ?>
-
-</body>
-
-</html>
+<!-- footer section -->
+<?php
+require_once "./views/partials/footer.part.php";
+?>
+<!-- footer section -->
