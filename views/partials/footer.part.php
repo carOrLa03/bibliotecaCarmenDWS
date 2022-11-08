@@ -4,27 +4,10 @@
             <div class="col-md-4 footer-col">
                 <div class="footer_contact">
                     <h4>
-                        Contáctanos
+                        Colaboradores
                     </h4>
-                    <div class="contact_link_box">
-                        <a href="">
-                            <i class="fa fa-map-marker" aria-hidden="true"></i>
-                            <span>
-                                Location
-                            </span>
-                        </a>
-                        <a href="">
-                            <i class="fa fa-phone" aria-hidden="true"></i>
-                            <span>
-                                Call +01 1234567890
-                            </span>
-                        </a>
-                        <a href="">
-                            <i class="fa fa-envelope" aria-hidden="true"></i>
-                            <span>
-                                carorla@gmail.com
-                            </span>
-                        </a>
+                    <div class="contact_link_box d.flex ">
+                        <?php include("colaboradores.part.php") ?>;
                     </div>
                 </div>
             </div>

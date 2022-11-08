@@ -1,6 +1,6 @@
 <?php
-require_once("./views/partials/menu.part.php");
-require_once("./utils/validarForm.php");
+// require_once("./views/partials/menu.part.php");
+// require_once("./book.php");
 ?>
 <!-- book section -->
 <section class="book_section layout_padding">
@@ -41,6 +41,7 @@ require_once("./utils/validarForm.php");
 
 <!-- footer section -->
 <?php
+
 require_once "./views/partials/footer.part.php";
 ?>
 <!-- footer section -->
