@@ -31,6 +31,7 @@
 </head>
 
 <body>
+
     <!-- header section strats -->
     <div class="hero_area">
         <div class="bg-box">
@@ -61,7 +62,7 @@
                                 <a class="nav-link" href="menu.php">Libros</a>
                             </li>
                             <li class="nav-item <?php isActive("about.php") ?>">
-                                <a class="nav-link" href="about.php">About</a>
+                                <a class="nav-link" href="colaboradores.php">Colaboradores</a>
                             </li>
                             <li class="nav-item <?php isActive("book.php") ?>">
                                 <a class="nav-link" href="book.php">Contacto</a>

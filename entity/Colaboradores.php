@@ -4,7 +4,7 @@ class Colaborador
 {
     private $nombre;
     private $descripcion;
-    private const RUTA_LOGO = "./images/";
+    public const RUTA_LOGO = "./images/colaboradores/";
 
     public function __construct($nom, $desc)
     {

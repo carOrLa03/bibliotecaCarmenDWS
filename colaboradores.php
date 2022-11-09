@@ -1,28 +1,38 @@
 <?php
 require_once("./views/partials/menu.part.php");
-$nombre = "";
-$mail = "";
+require_once "./entity/Colaboradores.php";
+require_once "./utils/file.php";
+
 $error = "";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $nombre = htmlspecialchars(trim($_POST['nombre']));
-    $mail = htmlspecialchars(trim($_POST['email']));
-    $textarea = htmlspecialchars($_POST['textArea']);
-    if ((!preg_match("/^[a-zA-Z]+/", $nombre) || strlen($nombre) < 7)) {
+    $nombre = htmlspecialchars(trim($_POST['nombre_colaborador']));
+    $descripcion = htmlspecialchars(trim($_POST['descrip_colaborador']));
+
+    if ((!preg_match("/^[a-zA-Z]+/", $nombre) || strlen($nombre) < 5)) {
         $error = "El nombre no es correcto";
-    } else if (!filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-        $error = "El email introducido no es correcto.";
-    } else if (strlen($textarea) < 10) {
-        $error = "El comentario no debe estar vacío";
+    } else if (strlen($descripcion) < 10) {
+        $error = "La descripcion no puede estar vacía.";
+    } else if ($_FILES["img_colaborador"]['name'] == "") {
+        $error = "Debes introducir un archivo de imagen";
     } else {
-        $error = 'ok';
+        try {
+            $file  = new File("img_colaborador");
+            $file->saveUploadFile(Colaborador::RUTA_LOGO);
+            $error = 'ok';
+        } catch (FileException $e) {
+            $mensaje = $e->getMessage();
+            echo "<div class='alert alert-danger' role='alert'>
+            $mensaje 
+           </div>";
+        }
     }
     if ($error != "ok") {
         echo "<div class='alert alert-danger' role='alert'>
          $error 
         </div>";
     } else {
-        $mensaje = " Tus datos han sido enviados correctamente.";
+        $mensaje = " Los archivos han sido subidos.";
         echo "<div class='alert alert-success' role='alert'>
          $mensaje 
         </div>";
@@ -44,5 +54,4 @@ $colaboradores = array(
 );
 
 $colaboradores = mezclar($colaboradores);
-
-require_once "./views/book.view.php";
+require_once "./views/colaboradores.view.php";

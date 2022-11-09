@@ -9,3 +9,9 @@ function isActive($currect_page)
         echo 'active';
     }
 }
+function mezclar($array)
+{
+    shuffle($array);
+    $seleccion = array_chunk($array, 3);
+    return $seleccion[0];
+}

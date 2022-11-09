@@ -107,14 +107,15 @@ a:focus {
   top: 0;
   left: 0;
   width: 100%;
-  height: 80%;
+  height: 100%;
 }
 
 .bg-box img {
   width: 100%;
-  height: 80%;
+  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+     opacity: 0.8;
 }
 
 .sub_page .hero_area {
@@ -126,12 +127,11 @@ a:focus {
   top: 0;
   left: 0;
   width: 100%;
-  height: 80%;
+  height: 100%;
 }
 
 .sub_page .hero_area .bg-box img {
   width: 100%;
-  height: 80%;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: right top;
@@ -139,7 +139,7 @@ a:focus {
 }
 
 .header_section {
-  padding: 15px 0;
+  padding: 50px 0;
 }
 
 .header_section .container-fluid {
@@ -149,12 +149,13 @@ a:focus {
 
 .navbar-brand {
   font-family: 'Dancing Script', cursive;
+  
 }
 
 .navbar-brand span {
   font-weight: bold;
-  font-size: 32px;
-  color: #ffffff;
+  font-size: 2.5em;
+  color: #222831;
 }
 
 .custom_nav-container {
@@ -337,7 +338,7 @@ a:focus {
 }
 
 .slider_section .detail-box {
-  color: #ffffff;
+  color: #000000;
   margin-bottom: 145px;
 }
 
@@ -346,7 +347,11 @@ a:focus {
   font-weight: bold;
   margin-bottom: 15px;
 }
-
+.img_colaboradores{
+  max-width:175px;
+  object-fit:cover;
+  border-radius: 15px;
+}
 .slider_section .detail-box p {
   font-size: 14px;
 }
@@ -355,7 +360,7 @@ a:focus {
   display: inline-block;
   padding: 10px 45px;
   background-color: #ffbe33;
-  color: #ffffff;
+  color: #000000;
   border-radius: 45px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
@@ -383,7 +388,7 @@ a:focus {
 }
 
 .slider_section .carousel-indicators li {
-  background-color: #ffffff;
+  background-color: #ffbe33;
   width: 12px;
   height: 12px;
   border-radius: 100%;
@@ -393,7 +398,7 @@ a:focus {
 .slider_section .carousel-indicators li.active {
   width: 20px;
   height: 20px;
-  background-color: #ffbe33;
+  background-color: #000000;
 }
 
 .offer_section {
@@ -416,9 +421,9 @@ a:focus {
 }
 
 .offer_section .box .img-box {
-  width: 175px;
-  min-width: 175px;
-  height: 175px;
+  width: 250px;
+  min-width: 250px;
+  object-fit: cover;
   margin-right: 15px;
   position: relative;
   -webkit-transition: all 0.1 0.5s;
@@ -444,7 +449,10 @@ a:focus {
   font-family: 'Dancing Script', cursive;
   margin: 10px 0;
 }
-
+.title_colaboradores{
+  font-family: 'Dancing Script', cursive;
+  font-size: 3em;
+}
 .offer_section .box .detail-box h6 span {
   font-size: 2.5rem;
   font-weight: bold;
@@ -763,7 +771,7 @@ a:focus {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 115px;
+  width: 215px;
   position: relative;
   margin-top: 30px;
 }
@@ -772,6 +780,8 @@ a:focus {
   border-radius: 100%;
   border: 5px solid #ffbe33;
   position: relative;
+  max-width: 200px;
+  height: 200px;
 }
 
 .client_section .box .img-box::before {
@@ -924,7 +934,14 @@ a:focus {
 .footer_section .footer-col {
   margin-bottom: 30px;
 }
-
+.footer_contact {
+text-align: center;
+margin-bottom: 10px;
+}
+.contact_link_box{
+  display: flex;
+  justify-content: space-around;
+}
 .footer_section .footer_contact .contact_link_box {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -1,17 +1,21 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="footer_contact">
+            <h3 class="title_colaboradores">
+                Colaboradores
+            </h3>
+            <div class="contact_link_box d.flex justify-content-around">
+                <?php include("colaboradores.part.php") ?>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 <footer class="footer_section">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 footer-col">
-                <div class="footer_contact">
-                    <h4>
-                        Colaboradores
-                    </h4>
-                    <div class="contact_link_box d.flex ">
-                        <?php include("colaboradores.part.php") ?>;
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 footer-col">
+            <div class="col-md-6 footer-col">
                 <div class="footer_detail">
                     <a href="" class="footer-logo">
                         Biblioteca
@@ -38,7 +42,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 footer-col">
+            <div class="col-md-6 footer-col">
                 <h4>
                     Horario
                 </h4>
