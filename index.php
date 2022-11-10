@@ -1,5 +1,4 @@
 <?php
-
 require_once "./entity/Colaboradores.php";
 require_once "./utils/utils.php";
 

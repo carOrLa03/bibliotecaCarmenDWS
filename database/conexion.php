@@ -10,7 +10,7 @@ class Conexion
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_PERSISTENT => true
             ];
-            $conexion = new PDO('mysql:host=localhost;dbname=pruebas', 'root', '', $opciones);
+            $conexion = new PDO('mysql:host=localhost;dbname=biblioteca', 'root', '', $opciones);
         } catch (PDOException $PDOExcepetion) { //las excepciones se muestran de manera automática
             die($PDOExcepetion->getMessage());
         }
@@ -18,5 +18,3 @@ class Conexion
         return $conexion;
     }
 }
-
-Conexion::make();
