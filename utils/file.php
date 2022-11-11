@@ -18,11 +18,20 @@ class File
     public function saveUploadFile($rutaDestino)
     {
         $rutaCompleta = $rutaDestino . $this->file['name'];
-        if (is_file($rutaCompleta)) {
-            throw new FileException("El archivo ya existe.");
+        // si existe el archivo se ha de renombrar el archivo
+        // mientras el archivo exista creo un número aleatorio que lo uno al nombre del archivo hasta que no exista esa ruta
+        while (is_file($rutaCompleta)) {
+            $nombreNew = random_int(1, 1000) . $this->file['name'];
+            $rutaCompleta = $rutaDestino . $nombreNew;
+            $this->file['name'] = $nombreNew;
         }
+        // mover el archivo a la carpeta de colaboradores, de fallar salta una excepción
         if (!move_uploaded_file($this->file['tmp_name'], $rutaCompleta)) {
             throw new FileException("No se ha completado la subida de los archivos.");
         }
+    }
+    public function getFileName()
+    {
+        return $this->file['name'];
     }
 }

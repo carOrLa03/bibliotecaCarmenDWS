@@ -32,7 +32,7 @@ require_once("./views/partials/menu.part.php");
             <div class="col-md-7 col-lg-6 ">
               <div class="detail-box">
                 <h1>
-                  LOGUEATE
+                  REGISTRATE
                 </h1>
                 <p>
                   Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
@@ -146,7 +146,7 @@ require_once("./views/partials/menu.part.php");
           <div class="box">
             <div class="detail-box">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                Mi pasión son las historias y por ello los libros me encantan, gracias a esta biblioteca disfruto de nuevas historias cada semana. Por favor continuad así. Gracias!!
               </p>
               <h6>
                 Moana Michell
@@ -164,7 +164,7 @@ require_once("./views/partials/menu.part.php");
           <div class="box">
             <div class="detail-box">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                Esta biblioteca es una pasada, tiene todos los libros posibles y opr haber. Es el mejor sitio que he encontrado para conseguir los libros que me gustan.
               </p>
               <h6>
                 Mike Hamell
