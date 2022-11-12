@@ -9,7 +9,7 @@ class File
     {
         $tipo = $_FILES[$nombre_img]['type'];
         // si el tipo de archivo no es igual a los descritos abajo lanza una excepción
-        if ($tipo != 'image/jpg' || $tipo != 'image/jpeg' || $tipo != 'image/png' || $tipo != 'image/gif') {
+        if (!($tipo == 'image/jpg' || $tipo == 'image/jpeg' || $tipo == 'image/png' || $tipo == 'image/gif')) {
             throw new FileException("Los archivos no son del tipo jpg, jpeg, png, gif.");
         }
         $this->file = $_FILES[$nombre_img];
