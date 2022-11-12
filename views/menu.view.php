@@ -8,16 +8,16 @@ require_once("./views/partials/menu.part.php");
   <div class="container">
     <div class="heading_container heading_center">
       <h2>
-        Our Menu
+        Secciones
       </h2>
     </div>
 
     <ul class="filters_menu">
-      <li class="active" data-filter="*">All</li>
-      <li data-filter=".burger">Burger</li>
-      <li data-filter=".pizza">Pizza</li>
-      <li data-filter=".pasta">Pasta</li>
-      <li data-filter=".fries">Fries</li>
+      <li class="active" data-filter="*">Todas</li>
+      <li data-filter=".burger">Novela Extranjera</li>
+      <li data-filter=".pizza">Novela Nacional</li>
+      <li data-filter=".pasta">Infantil</li>
+      <li data-filter=".fries">Educación</li>
     </ul>
 
     <div class="filters-content">
@@ -26,7 +26,7 @@ require_once("./views/partials/menu.part.php");
           <div class="box">
             <div>
               <div class="img-box">
-                <img src="images/f1.png" alt="">
+                <img src="images/librosTaza.jpg" alt="">
               </div>
               <div class="detail-box">
                 <h5>
@@ -36,9 +36,6 @@ require_once("./views/partials/menu.part.php");
                   Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
                 </p>
                 <div class="options">
-                  <h6>
-                    $20
-                  </h6>
                   <a href="">
                     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                       <g>
@@ -102,7 +99,7 @@ require_once("./views/partials/menu.part.php");
           <div class="box">
             <div>
               <div class="img-box">
-                <img src="images/f2.png" alt="">
+                <img src="images/librosTaza.jpg" alt="">
               </div>
               <div class="detail-box">
                 <h5>
@@ -112,9 +109,6 @@ require_once("./views/partials/menu.part.php");
                   Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
                 </p>
                 <div class="options">
-                  <h6>
-                    $15
-                  </h6>
                   <a href="">
                     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                       <g>
@@ -178,7 +172,7 @@ require_once("./views/partials/menu.part.php");
           <div class="box">
             <div>
               <div class="img-box">
-                <img src="images/f3.png" alt="">
+                <img src="images/librosTaza.jpg" alt="">
               </div>
               <div class="detail-box">
                 <h5>
@@ -188,9 +182,6 @@ require_once("./views/partials/menu.part.php");
                   Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
                 </p>
                 <div class="options">
-                  <h6>
-                    $17
-                  </h6>
                   <a href="">
                     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                       <g>
@@ -254,7 +245,7 @@ require_once("./views/partials/menu.part.php");
           <div class="box">
             <div>
               <div class="img-box">
-                <img src="images/f4.png" alt="">
+                <img src="images/librosTaza.jpg" alt="">
               </div>
               <div class="detail-box">
                 <h5>
@@ -264,9 +255,6 @@ require_once("./views/partials/menu.part.php");
                   Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
                 </p>
                 <div class="options">
-                  <h6>
-                    $18
-                  </h6>
                   <a href="">
                     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                       <g>
@@ -330,7 +318,7 @@ require_once("./views/partials/menu.part.php");
           <div class="box">
             <div>
               <div class="img-box">
-                <img src="images/f5.png" alt="">
+                <img src="images/librosTaza.jpg" alt="">
               </div>
               <div class="detail-box">
                 <h5>
@@ -340,9 +328,6 @@ require_once("./views/partials/menu.part.php");
                   Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
                 </p>
                 <div class="options">
-                  <h6>
-                    $10
-                  </h6>
                   <a href="">
                     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                       <g>
@@ -406,7 +391,7 @@ require_once("./views/partials/menu.part.php");
           <div class="box">
             <div>
               <div class="img-box">
-                <img src="images/f6.png" alt="">
+                <img src="images/librosTaza.jpg" alt="">
               </div>
               <div class="detail-box">
                 <h5>
@@ -416,9 +401,6 @@ require_once("./views/partials/menu.part.php");
                   Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
                 </p>
                 <div class="options">
-                  <h6>
-                    $15
-                  </h6>
                   <a href="">
                     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                       <g>
@@ -482,7 +464,7 @@ require_once("./views/partials/menu.part.php");
           <div class="box">
             <div>
               <div class="img-box">
-                <img src="images/f7.png" alt="">
+                <img src="images/librosTaza.jpg" alt="">
               </div>
               <div class="detail-box">
                 <h5>
@@ -492,9 +474,6 @@ require_once("./views/partials/menu.part.php");
                   Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
                 </p>
                 <div class="options">
-                  <h6>
-                    $12
-                  </h6>
                   <a href="">
                     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                       <g>
@@ -558,7 +537,7 @@ require_once("./views/partials/menu.part.php");
           <div class="box">
             <div>
               <div class="img-box">
-                <img src="images/f8.png" alt="">
+                <img src="images/librosTaza.jpg" alt="">
               </div>
               <div class="detail-box">
                 <h5>
@@ -568,9 +547,6 @@ require_once("./views/partials/menu.part.php");
                   Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
                 </p>
                 <div class="options">
-                  <h6>
-                    $14
-                  </h6>
                   <a href="">
                     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                       <g>
@@ -634,7 +610,7 @@ require_once("./views/partials/menu.part.php");
           <div class="box">
             <div>
               <div class="img-box">
-                <img src="images/f9.png" alt="">
+                <img src="images/librosTaza.jpg" alt="">
               </div>
               <div class="detail-box">
                 <h5>
@@ -644,9 +620,6 @@ require_once("./views/partials/menu.part.php");
                   Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
                 </p>
                 <div class="options">
-                  <h6>
-                    $10
-                  </h6>
                   <a href="">
                     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                       <g>
