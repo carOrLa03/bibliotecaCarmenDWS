@@ -1,6 +1,6 @@
 <?php
 
-$consulta = new QueryBuilder(Conexion::make());
+$consulta = new QueryBuilder($conexion);
 $arrayConstructor = array("id", "nombre", "descripcion", "archivo");
 $colaboradores = $consulta->findAll("colaboradores", "Colaborador", $arrayConstructor);
 

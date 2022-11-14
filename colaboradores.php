@@ -1,11 +1,24 @@
 <?php
-require_once("./views/partials/menu.part.php");
+// CONEXION A LA BBD BIBLIOTECA PARA INSERTAR EN LA BBDD  A LOS COLABORADORES
+require_once("./exceptions/AppException.php");
+require_once "./exceptions/DataBaseException.php";
+require_once "./exceptions/FileException.php";
+
 require_once "./entity/Colaboradores.php";
 require_once "./utils/file.php";
+require_once "./utils/utils.php";
 
-// CONEXION A LA BBD BIBLIOTECA PARA INSERTAR EN LA BBDD  A LOS COLABORADORES
-require_once "./database/conexion.php";
-require_once "./exceptions/DataBaseException.php";
+require_once("./database/conexion.php");
+// mostrar los colaboradores
+require_once("./database/queryBuilder.php");
+
+require_once("./core/App.php");
+$config = require_once("./app/config.php");
+App::bind('config', $config);
+$conexion = App::getConexion();
+
+require_once("./views/partials/menu.part.php");
+
 
 $error = "";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -30,7 +43,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // NOS CONECTAREMOS A LA BD E INSERTAREMOS ESOS DATOS EN LA TABLA
             // COLABORADORES
             try {
-                $conexion  = Conexion::make();
                 if (!$conexion) {
                     throw new DataBException("Conexion fallida");
                 }
@@ -51,6 +63,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "<div class='alert alert-danger' role='alert'>
             $mensaje 
            </div>";
+        } catch (AppException $e) {
+            $mensaje = $e->getMessage();
+            echo "<div class='alert alert-danger' role='alert'>
+                $mensaje 
+                </div>";
         }
     }
     if ($error != "ok") {
@@ -64,7 +81,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>";
     }
 }
-// mostrar los colaboradores
-require_once("./database/queryBuilder.php");
+
 
 require_once "./views/colaboradores.view.php";
