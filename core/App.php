@@ -1,7 +1,5 @@
 <?php
-// require_once("../exceptions/AppException.php");
-// require_once("../database/conexion.php");
-// $config = require_once("./app/config.php");
+
 // clase donde guardaremos los diferentes objetos en un array contenedor
 class App
 {

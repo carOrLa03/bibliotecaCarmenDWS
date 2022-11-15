@@ -1,9 +1,11 @@
 <?php
 // CONEXION A LA BBD BIBLIOTECA PARA INSERTAR EN LA BBDD  A LOS COLABORADORES
+// excepciones
 require_once("./exceptions/AppException.php");
 require_once "./exceptions/DataBaseException.php";
 require_once "./exceptions/FileException.php";
 
+// require_once("../database/lentity.php");
 require_once "./entity/Colaboradores.php";
 require_once "./utils/file.php";
 require_once "./utils/utils.php";
@@ -13,6 +15,7 @@ require_once("./database/conexion.php");
 require_once("./database/queryBuilder.php");
 
 require_once("./core/App.php");
+// recuperamos el array con los parametros de configuracion
 $config = require_once("./app/config.php");
 App::bind('config', $config);
 $conexion = App::getConexion();
@@ -43,15 +46,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // NOS CONECTAREMOS A LA BD E INSERTAREMOS ESOS DATOS EN LA TABLA
             // COLABORADORES
             try {
-                if (!$conexion) {
-                    throw new DataBException("Conexion fallida");
-                }
+                $arrayConstructor = array("id", "nombre", "descripcion", "archivo");
+
+                $queryBuilder = new QueryBuilder('colaboradores', 'Colaborador', $arrayConstructor);
                 $nomFile = $file->getFileName();
-                $consulta = "INSERT INTO colaboradores (nombre, descripcion, archivo) 
-                                VALUES (:nombre, :descripcion, :archivo)";
-                $prepara = $conexion->prepare($consulta);
-                $prepara->execute(array(":nombre" => $nombre, ":descripcion" => $descripcion, ":archivo" => $nomFile));
-                $prepara->closeCursor();
+                $colaborador = new Colaborador($nombre, $descripcion,  $nomFile);
+                $queryBuilder->save($colaborador);
+
+                // $consulta = "INSERT INTO colaboradores (nombre, logo) 
+                //                 VALUES (:nombre, :logo)";
+                // $prepara = $conexion->prepare($consulta);
+                // $parametros  = [':nombre' => $nombre, ':archivo' => $nomFile];
+                // $prepara->execute($parametros);
+                // $prepara->closeCursor();
             } catch (DataBException $e) {
                 $mensaje = $e->getMessage();
                 echo "<div class='alert alert-danger' role='alert'>
@@ -64,6 +71,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $mensaje 
            </div>";
         } catch (AppException $e) {
+            $mensaje = $e->getMessage();
+            echo "<div class='alert alert-danger' role='alert'>
+                $mensaje 
+                </div>";
+        } catch (DataBException $e) {
             $mensaje = $e->getMessage();
             echo "<div class='alert alert-danger' role='alert'>
                 $mensaje 

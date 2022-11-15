@@ -1,8 +1,7 @@
 <?php
 
-$consulta = new QueryBuilder($conexion);
-$arrayConstructor = array("id", "nombre", "descripcion", "archivo");
-$colaboradores = $consulta->findAll("colaboradores", "Colaborador", $arrayConstructor);
+$colaboradores = $consulta->findAll();
+var_dump($colaboradores);
 
 $colaboradores = mezclar($colaboradores);
 // bucle para recorrer un array de colaboradores y muestra su imagen asociada

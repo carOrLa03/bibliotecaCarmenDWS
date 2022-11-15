@@ -1,6 +1,6 @@
 <?php
-
-class Colaborador
+require_once("../database/lentity.php");
+class Colaborador implements IEntity
 {
     private $id;
     private $nombre;
@@ -8,9 +8,9 @@ class Colaborador
     private $archivo;
     public const RUTA_LOGO = "./images/colaboradores/";
 
-    public function __construct($id, $nom, $desc, $archivo)
+    public function __construct($nom, $desc, $archivo)
     {
-        $this->id = $id;
+        $this->id;
         $this->nombre =  $nom;
         $this->descripcion = $desc;
         $this->archivo = $archivo;
@@ -24,6 +24,10 @@ class Colaborador
     {
         $this->descripcion = $desc;
     }
+    public function setArchivo($archivo)
+    {
+        $this->archivo = $archivo;
+    }
     public function getNombre()
     {
         return $this->nombre;
@@ -32,9 +36,21 @@ class Colaborador
     {
         return $this->descripcion;
     }
+    public function getArchivo()
+    {
+        return $this->archivo;
+    }
 
     public function getUrlImagen()
     {
         return self::RUTA_LOGO . $this->archivo;
+    }
+
+    public function toArray() /*lo usaremos para crear el método save() en queryBuilder*/
+    {
+        return [
+            'nombre' => $this->getNombre(),
+            'logo' => $this->getArchivo()
+        ];
     }
 }
