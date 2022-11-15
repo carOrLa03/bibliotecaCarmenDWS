@@ -1,5 +1,4 @@
 <?php
-// require_once("../database/lentity.php");
 class Colaborador implements IEntity
 {
     private $id;
