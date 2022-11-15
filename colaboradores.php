@@ -5,7 +5,7 @@ require_once("./exceptions/AppException.php");
 require_once "./exceptions/DataBaseException.php";
 require_once "./exceptions/FileException.php";
 
-// require_once("../database/lentity.php");
+require_once("./database/lentity.php");
 require_once "./entity/Colaboradores.php";
 require_once "./utils/file.php";
 require_once "./utils/utils.php";
