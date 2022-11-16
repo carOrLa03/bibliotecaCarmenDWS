@@ -1,6 +1,6 @@
 <?php
-// require_once("./exceptions/DataBaseException.php");
-class QueryBuilder
+require_once __DIR__ . "/../core/App.php";
+abstract class QueryBuilder
 {
     private $conexion;
     private $tabla;
@@ -17,6 +17,7 @@ class QueryBuilder
     public function findAll()
     {
         try {
+            // echo __DIR__ . "/../core/App.php";
 
             $sql = "SELECT * from $this->tabla";
             $pdoStatment = $this->conexion->prepare($sql);

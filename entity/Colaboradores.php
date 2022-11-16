@@ -1,7 +1,7 @@
 <?php
+
 class Colaborador implements IEntity
 {
-    private $id;
     private $nombre;
     private $descripcion;
     private $archivo;
@@ -9,7 +9,6 @@ class Colaborador implements IEntity
 
     public function __construct($nom, $desc, $archivo)
     {
-        $this->id;
         $this->nombre =  $nom;
         $this->descripcion = $desc;
         $this->archivo = $archivo;
@@ -49,7 +48,8 @@ class Colaborador implements IEntity
     {
         return [
             'nombre' => $this->getNombre(),
-            'logo' => $this->getArchivo()
+            'descripcion' => $this->getDescripcion(),
+            'archivo' => $this->getArchivo()
         ];
     }
 }

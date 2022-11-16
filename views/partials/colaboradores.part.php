@@ -1,7 +1,6 @@
 <?php
-
-$colaboradores = $consulta->findAll();
-var_dump($colaboradores);
+$colRep = new ColaboradorRepositorio();
+$colaboradores = $colRep->findAll();
 
 $colaboradores = mezclar($colaboradores);
 // bucle para recorrer un array de colaboradores y muestra su imagen asociada

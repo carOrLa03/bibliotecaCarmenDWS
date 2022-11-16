@@ -5,7 +5,6 @@ class Conexion
     { //funcion estática!!
         try {
             $config  = App::get('config')['database'];
-            var_dump($config);
             $conexion = new PDO(
                 $config['connection'] . ';dbname=' . $config['name'],
                 $config['username'],
@@ -16,6 +15,6 @@ class Conexion
             throw new AppException('La conexión con la base de datos no se ha podido realizar.');
         }
 
-        return $config;
+        return $conexion;
     }
 }

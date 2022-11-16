@@ -13,8 +13,9 @@ require_once "./utils/utils.php";
 require_once("./database/conexion.php");
 // mostrar los colaboradores
 require_once("./database/queryBuilder.php");
-
+require_once __DIR__ . "/repository/ColaboradorRepositorio.php";
 require_once("./core/App.php");
+
 // recuperamos el array con los parametros de configuracion
 $config = require_once("./app/config.php");
 App::bind('config', $config);
@@ -45,26 +46,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // CORRECTAMENTE TODOS LOS DATOS
             // NOS CONECTAREMOS A LA BD E INSERTAREMOS ESOS DATOS EN LA TABLA
             // COLABORADORES
-            try {
-                $arrayConstructor = array("id", "nombre", "descripcion", "archivo");
 
-                $queryBuilder = new QueryBuilder('colaboradores', 'Colaborador', $arrayConstructor);
-                $nomFile = $file->getFileName();
-                $colaborador = new Colaborador($nombre, $descripcion,  $nomFile);
-                $queryBuilder->save($colaborador);
-
-                // $consulta = "INSERT INTO colaboradores (nombre, logo) 
-                //                 VALUES (:nombre, :logo)";
-                // $prepara = $conexion->prepare($consulta);
-                // $parametros  = [':nombre' => $nombre, ':archivo' => $nomFile];
-                // $prepara->execute($parametros);
-                // $prepara->closeCursor();
-            } catch (DataBException $e) {
-                $mensaje = $e->getMessage();
-                echo "<div class='alert alert-danger' role='alert'>
-                $mensaje 
-                </div>";
-            }
+            $colaboradorRepository = new ColaboradorRepositorio();
+            $nomFile = $file->getFileName();
+            $colaboradorRepository->save(new Colaborador($nombre, $descripcion,  $nomFile));
         } catch (FileException $e) {
             $mensaje = $e->getMessage();
             echo "<div class='alert alert-danger' role='alert'>
