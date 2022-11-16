@@ -18,7 +18,7 @@ require_once("./views/partials/menu.part.php");
                 </p>
                 <div class="btn-box">
                   <a href="" class="btn1">
-                    Order Now
+                    Ven y busca
                   </a>
                 </div>
               </div>
@@ -39,7 +39,7 @@ require_once("./views/partials/menu.part.php");
                 </p>
                 <div class="btn-box">
                   <a href="" class="btn1">
-                    Order Now
+                    Registrarse
                   </a>
                 </div>
               </div>
@@ -58,11 +58,6 @@ require_once("./views/partials/menu.part.php");
                 <p>
                   Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
                 </p>
-                <div class="btn-box">
-                  <a href="" class="btn1">
-                    Order Now
-                  </a>
-                </div>
               </div>
             </div>
           </div>
@@ -101,7 +96,7 @@ require_once("./views/partials/menu.part.php");
                 <span>20%</span> Off
               </h6>
               <a href="">
-                Order Now
+                Suscribete
               </a>
             </div>
           </div>
@@ -119,7 +114,7 @@ require_once("./views/partials/menu.part.php");
                 <span>15%</span> Off
               </h6>
               <a href="">
-                Order Now
+                Suscribete
               </a>
             </div>
           </div>

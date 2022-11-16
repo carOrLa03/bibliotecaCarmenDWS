@@ -62,6 +62,9 @@
                                 <a class="nav-link" href="menu.php">Libros</a>
                             </li>
                             <li class="nav-item <?php isActive("about.php") ?>">
+                                <a class="nav-link" href="#">Usuarios</a>
+                            </li>
+                            <li class="nav-item <?php isActive("about.php") ?>">
                                 <a class="nav-link" href="colaboradores.php">Colaboradores</a>
                             </li>
                             <li class="nav-item <?php isActive("book.php") ?>">
@@ -81,9 +84,6 @@
                                     <i class="fa fa-search" aria-hidden="true"></i>
                                 </button>
                             </form>
-                            <a href="" class="order_online">
-                                Order Online
-                            </a>
                         </div>
                     </div>
                 </nav>

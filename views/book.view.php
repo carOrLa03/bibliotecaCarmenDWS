@@ -1,6 +1,4 @@
 <?php
-// require_once("./views/partials/menu.part.php");
-// require_once("./book.php");
 ?>
 <!-- book section -->
 <section class="book_section layout_padding">

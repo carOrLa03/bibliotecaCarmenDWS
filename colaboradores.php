@@ -23,7 +23,6 @@ $conexion = App::getConexion();
 
 require_once("./views/partials/menu.part.php");
 
-
 $error = "";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
