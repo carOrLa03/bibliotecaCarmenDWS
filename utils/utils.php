@@ -9,6 +9,7 @@ function isActive($currect_page)
         echo 'active';
     }
 }
+// función para mezclar un array y que me devuelva un array con 3 elementos
 function mezclar($array)
 {
     shuffle($array);

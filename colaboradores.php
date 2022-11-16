@@ -11,12 +11,12 @@ require_once "./utils/file.php";
 require_once "./utils/utils.php";
 
 require_once("./database/conexion.php");
-// mostrar los colaboradores
+// para mostrar los colaboradores
 require_once("./database/queryBuilder.php");
 require_once __DIR__ . "/repository/ColaboradorRepositorio.php";
 require_once("./core/App.php");
 
-// recuperamos el array con los parametros de configuracion
+// recuperamos el array con los parametros de configuracion para hacer la conexión
 $config = require_once("./app/config.php");
 App::bind('config', $config);
 $conexion = App::getConexion();

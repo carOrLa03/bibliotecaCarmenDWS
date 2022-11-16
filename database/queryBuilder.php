@@ -17,8 +17,6 @@ abstract class QueryBuilder
     public function findAll()
     {
         try {
-            // echo __DIR__ . "/../core/App.php";
-
             $sql = "SELECT * from $this->tabla";
             $pdoStatment = $this->conexion->prepare($sql);
             $pdoStatment->execute();
