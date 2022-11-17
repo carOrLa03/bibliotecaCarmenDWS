@@ -1,6 +1,6 @@
 <?php
 // clase para subir imagenes al servidor
-require_once "./exceptions/FileException.php";
+require_once __DIR__ . "../../exceptions/FileException.php";
 class File
 {
     private $file;
