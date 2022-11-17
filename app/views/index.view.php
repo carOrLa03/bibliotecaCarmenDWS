@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . "../../views/partials/menu.part.php";
+require_once __DIR__ . "/../views/partials/menu.part.php";
 ?>
 <!-- slider section -->
 <section class="slider_section ">
@@ -174,7 +174,7 @@ require_once __DIR__ . "../../views/partials/menu.part.php";
               </p>
             </div>
             <div class="img-box">
-              <img src="images/tioleyendo.jpg" alt="" class="box-img cliente_leyendo">
+              <img src="../../images/tioLeyendo.jpg" alt="" class="box-img cliente_leyendo">
             </div>
           </div>
         </div>
@@ -187,5 +187,5 @@ require_once __DIR__ . "../../views/partials/menu.part.php";
 
 <!-- footer section -->
 <?php
-require_once __DIR__ . "../../views/partials/footer.part.php";
+require_once __DIR__ . "/../views/partials/footer.part.php";
 ?>
