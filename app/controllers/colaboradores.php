@@ -1,27 +1,29 @@
 <?php
 // CONEXION A LA BBD BIBLIOTECA PARA INSERTAR EN LA BBDD  A LOS COLABORADORES
 // excepciones
-require_once("./exceptions/AppException.php");
-require_once "./exceptions/DataBaseException.php";
-require_once "./exceptions/FileException.php";
+require_once __DIR__ . "/../../exceptions/AppException.php";
+require_once __DIR__ . "/../../exceptions/DataBaseException.php";
+require_once __DIR__ . "/../../exceptions/FileException.php";
+require_once __DIR__ . "/../../database/lentity.php";
+require_once __DIR__ . "/../../entity/Colaboradores.php";
+require_once __DIR__ . "/../../utils/file.php";
+require_once __DIR__ . "/../../utils/utils.php";
 
-require_once("./database/lentity.php");
-require_once "./entity/Colaboradores.php";
-require_once "./utils/file.php";
-require_once "./utils/utils.php";
-
-require_once("./database/conexion.php");
+require_once __DIR__ . "/../../database/conexion.php";
 // mostrar los colaboradores
-require_once("./database/queryBuilder.php");
+require_once __DIR__ . "/../../database/queryBuilder.php";
 
-require_once("./core/App.php");
+require_once __DIR__ . "/repository/ColaboradorRepositorio.php";
+
+require_once __DIR__ . "/../../core/App.php";
 // recuperamos el array con los parametros de configuracion
-$config = require_once("./app/config.php");
+$config = require_once __DIR__ . "/../config.php";
+
 App::bind('config', $config);
 $conexion = App::getConexion();
 
-require_once("./views/partials/menu.part.php");
 
+require_once __DIR__ . "/views/partials/menu.part.php";
 
 $error = "";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -95,4 +97,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 
-require_once "./views/colaboradores.view.php";
+require_once __DIR__ . "/views/colaboradores.view.php";
