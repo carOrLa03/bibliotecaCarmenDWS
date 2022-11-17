@@ -11,11 +11,11 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <link rel="shortcut icon" href="/images/book-fill.svg" type="">
+    <link rel="shortcut icon" href="/../images/book-fill.svg" type="">
 
     <title> Biblioteca </title>
     <!-- bootstrap core css -->
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/../css/bootstrap.css" />
 
     <!--owl slider stylesheet -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
@@ -25,9 +25,9 @@
     <link href="/css/font-awesome.min.css" rel="stylesheet" />
 
     <!-- Custom styles for this template -->
-    <link href="/css/style.css" rel="stylesheet" />
+    <link href="/../css/style.css" rel="stylesheet" />
     <!-- responsive style -->
-    <link href="/css/responsive.css" rel="stylesheet" />
+    <link href="/../css/responsive.css" rel="stylesheet" />
 </head>
 
 <body>

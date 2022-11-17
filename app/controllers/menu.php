@@ -15,4 +15,4 @@ $config = require_once __DIR__ . "/../config.php";
 
 App::bind('config', $config);
 $conexion = App::getConexion();
-require_once "../controllers/views/menu.view.php";
+require_once "/../controllers/views/menu.view.php";

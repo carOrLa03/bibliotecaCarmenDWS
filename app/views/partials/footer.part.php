@@ -6,7 +6,7 @@
             </h3>
             <div class="contact_link_box d.flex justify-content-around">
                 <?php
-                require_once __DIR__ . "/colaboradores.part.php";
+                require_once "colaboradores.part.php";
                 ?>
             </div>
 
