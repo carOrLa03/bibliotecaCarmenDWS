@@ -55,17 +55,17 @@
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav  mx-auto ">
-                            <li class="nav-item <?php isActive("index.php") ?>">
-                                <a class="nav-link" href="index.php">Home</a>
+                            <li class="nav-item <?php isActive("index") ?>">
+                                <a class="nav-link" href="index">Home</a>
                             </li>
-                            <li class="nav-item <?php isActive("menu.php") ?>">
-                                <a class="nav-link" href="menu.php">Libros</a>
+                            <li class="nav-item <?php isActive("libros") ?>">
+                                <a class="nav-link" href="libros">Libros</a>
                             </li>
-                            <li class="nav-item <?php isActive("about.php") ?>">
-                                <a class="nav-link" href="colaboradores.php">Colaboradores</a>
+                            <li class="nav-item <?php isActive("colaboradores") ?>">
+                                <a class="nav-link" href="colaboradores">Colaboradores</a>
                             </li>
-                            <li class="nav-item <?php isActive("book.php") ?>">
-                                <a class="nav-link" href="book.php">Contacto</a>
+                            <li class="nav-item <?php isActive("contacto") ?>">
+                                <a class="nav-link" href="contacto">Contacto</a>
                             </li>
                         </ul>
                         <div class="user_option">

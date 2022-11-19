@@ -1,5 +1,5 @@
 <?php
-require_once("./views/partials/menu.part.php");
+require_once __DIR__ . "/partials/menu.part.php";
 ?>
 
 <!-- food section -->
@@ -693,6 +693,6 @@ require_once("./views/partials/menu.part.php");
 
 <!-- footer section -->
 <?php
-require_once "./views/partials/footer.part.php";
+require_once __DIR__ . "/partials/footer.part.php";
 ?>
 <!-- footer section -->
