@@ -39,19 +39,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // NOS CONECTAREMOS A LA BD E INSERTAREMOS ESOS DATOS EN LA TABLA
             // COLABORADORES
             try {
-                $arrayConstructor = array("id", "nombre", "descripcion", "archivo");
-
-                $queryBuilder = new QueryBuilder('colaboradores', 'Colaborador', $arrayConstructor);
                 $nomFile = $file->getFileName();
+                $colnewRepository = new ColaboradorRepositorio();
                 $colaborador = new Colaborador($nombre, $descripcion,  $nomFile);
-                $queryBuilder->save($colaborador);
-
-                // $consulta = "INSERT INTO colaboradores (nombre, logo) 
-                //                 VALUES (:nombre, :logo)";
-                // $prepara = $conexion->prepare($consulta);
-                // $parametros  = [':nombre' => $nombre, ':archivo' => $nomFile];
-                // $prepara->execute($parametros);
-                // $prepara->closeCursor();
+                $colnewRepository->save($colaborador);
             } catch (DataBException $e) {
                 $mensaje = $e->getMessage();
                 echo "<div class='alert alert-danger' role='alert'>
