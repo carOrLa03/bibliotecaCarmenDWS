@@ -1,5 +1,17 @@
 <?php
 require_once __DIR__ . "/../views/partials/menu.part.php";
+
+require_once __DIR__ . "/../../database/lentity.php";
+require_once __DIR__ . "/../../entity/Colaboradores.php";
+require_once __DIR__ . "/../../entity/Mensajes.php";
+require_once __DIR__ . "/../../utils/utils.php";
+
+// mostrar los colaboradores
+require_once __DIR__ . "/../../database/queryBuilder.php";
+require_once __DIR__ . "/../../repository/ColaboradorRepositorio.php";
+require_once __DIR__ . "/../../repository/MensajesRepository.php";
+require_once __DIR__ . "/../../core/bootstrap.php";
+
 $nombre = "";
 $mail = "";
 $error = "";
@@ -16,6 +28,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = "El comentario no debe estar vacío";
     } else {
         $error = 'ok';
+        $mensajeNuevo = new MensajesRepositorio();
+        $mensaje = new Mensajes($nombre, $mail, $textarea);
+        $mensajeNuevo->save($mensaje);
     }
     if ($error != "ok") {
         echo "<div class='alert alert-danger' role='alert'>
@@ -28,13 +43,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>";
     }
 }
-require_once __DIR__ . "/../../database/lentity.php";
-require_once __DIR__ . "/../../entity/Colaboradores.php";
-require_once __DIR__ . "/../../utils/utils.php";
 
-// mostrar los colaboradores
-require_once __DIR__ . "/../../database/queryBuilder.php";
-require_once __DIR__ . "/../../repository/ColaboradorRepositorio.php";
-require_once __DIR__ . "/../../core/bootstrap.php";
 
 require_once __DIR__ . "/../views/contacto.view.php";

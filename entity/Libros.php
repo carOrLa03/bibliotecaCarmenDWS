@@ -1,5 +1,5 @@
 <?php
-class Libros
+class Libros implements IEntity
 {
     private $nombre_libro;
     private $autor;
@@ -19,7 +19,7 @@ class Libros
     }
     public function getNombre()
     {
-        return $this->nombre;
+        return $this->nombre_libro;
     }
     public function getAutor()
     {
@@ -40,5 +40,17 @@ class Libros
     public function getAno()
     {
         return $this->ano_edicion;
+    }
+
+    public function toArray() /*lo usaremos para crear el método save() en queryBuilder*/
+    {
+        return [
+            'nombre' => $this->getNombre(),
+            'autor' => $this->getAutor(),
+            'genero' => $this->getGenero(),
+            'pais' => $this->getPais(),
+            'paginas' => $this->getPaginas(),
+            'ano' => $this->getAno()
+        ];
     }
 }

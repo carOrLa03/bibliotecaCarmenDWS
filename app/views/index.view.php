@@ -11,16 +11,11 @@ require_once __DIR__ . "/partials/menu.part.php";
             <div class="col-md-7 col-lg-6 ">
               <div class="detail-box">
                 <h1>
-                  BUSCA TU LIBRO FAVORITO
+                  Bienvenido
                 </h1>
                 <p>
-                  Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
+                  Aquí, podrás leer todos los libros que quieras durante el tiempo que necesites, buscar aquellos libros anhelados que no encontraste, pero sobre todo, podrás disfrutar de nuevas historias cada día.
                 </p>
-                <div class="btn-box">
-                  <a href="" class="btn1">
-                    Order Now
-                  </a>
-                </div>
               </div>
             </div>
           </div>
@@ -32,14 +27,14 @@ require_once __DIR__ . "/partials/menu.part.php";
             <div class="col-md-7 col-lg-6 ">
               <div class="detail-box">
                 <h1>
-                  REGISTRATE
+                  Registrate
                 </h1>
                 <p>
-                  Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
+                  Registrate en nuestra Biblioteca y comienza a disfrutar de tantos libros como quieras, por el tiempo que quieras, a un modico precio de suscripción.
                 </p>
                 <div class="btn-box">
                   <a href="" class="btn1">
-                    Order Now
+                    Registrarse
                   </a>
                 </div>
               </div>
@@ -53,14 +48,35 @@ require_once __DIR__ . "/partials/menu.part.php";
             <div class="col-md-7 col-lg-6 ">
               <div class="detail-box">
                 <h1>
-                  NO PARES DE LEER
+                  Busca tu libro
                 </h1>
                 <p>
-                  Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
+                  Entra a nuestro buscador de libros y encuentra tu próxima lectura. No te quedes con las ganas, tenemos miles de libros a tu disposición.
                 </p>
                 <div class="btn-box">
                   <a href="" class="btn1">
-                    Order Now
+                    Buscar ahora
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="container ">
+          <div class="row">
+            <div class="col-md-7 col-lg-6 ">
+              <div class="detail-box">
+                <h1>
+                  Consulta tus préstamos
+                </h1>
+                <p>
+                  No te preocupes por el tiempo, entrando aquí podrás consultar tus préstamos cuando lo necesites.
+                </p>
+                <div class="btn-box">
+                  <a href="" class="btn1">
+                    Consultar ahora
                   </a>
                 </div>
               </div>
@@ -74,6 +90,7 @@ require_once __DIR__ . "/partials/menu.part.php";
         <li data-target="#customCarousel1" data-slide-to="0" class="active"></li>
         <li data-target="#customCarousel1" data-slide-to="1"></li>
         <li data-target="#customCarousel1" data-slide-to="2"></li>
+        <li data-target="#customCarousel1" data-slide-to="3"></li>
       </ol>
     </div>
   </div>
@@ -101,7 +118,7 @@ require_once __DIR__ . "/partials/menu.part.php";
                 <span>20%</span> Off
               </h6>
               <a href="">
-                Order Now
+                Suscribete
               </a>
             </div>
           </div>
@@ -119,7 +136,7 @@ require_once __DIR__ . "/partials/menu.part.php";
                 <span>15%</span> Off
               </h6>
               <a href="">
-                Order Now
+                Suscribete
               </a>
             </div>
           </div>

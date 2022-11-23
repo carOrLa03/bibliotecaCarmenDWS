@@ -1,7 +1,3 @@
-<?php
-// require_once __DIR__ . "/partials/menu.part.php";
-?>
-
 <!-- colaboradores section -->
 
 <section class="about_section layout_padding">

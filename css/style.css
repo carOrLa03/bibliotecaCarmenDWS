@@ -137,7 +137,17 @@ a:focus {
   -o-object-position: right top;
      object-position: right top;
 }
-
+.caja_mititulo{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mititle{
+  font-size: 5em;
+  font-weight: 5em;
+  color: #0c0c0c;
+}
 .header_section {
   padding: 50px 0;
 }
@@ -586,15 +596,10 @@ a:focus {
           align-items: center;
 }
 
-.food_section .box .options a svg {
-  width: 18px;
-  height: auto;
-  fill: #ffffff;
-}
-
 .food_section .box:hover .img-box img {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  border-radius: 5px;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 .food_section .btn-box {

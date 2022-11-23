@@ -22,12 +22,11 @@
     <!-- nice select  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
     <!-- font awesome style -->
-    <link href="/css/font-awesome.min.css" rel="stylesheet" />
-
+    <link href="./../../css/font-awesome.min.css" rel="stylesheet" />
     <!-- Custom styles for this template -->
-    <link href="/../css/style.css" rel="stylesheet" />
+    <link href="./../../css/style.css" rel="stylesheet" />
     <!-- responsive style -->
-    <link href="/../css/responsive.css" rel="stylesheet" />
+    <link href="./../../css/responsive.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -43,7 +42,7 @@
             ?>
             <div class="container">
                 <nav class="navbar navbar-expand-lg custom_nav-container ">
-                    <a class="navbar-brand" href="index.php">
+                    <a class="navbar-brand" href="home">
                         <span>
                             Biblioteca
                         </span>
@@ -81,13 +80,16 @@
                                     <i class="fa fa-search" aria-hidden="true"></i>
                                 </button>
                             </form>
-                            <a href="" class="order_online">
-                                Order Online
-                            </a>
                         </div>
+
                     </div>
                 </nav>
             </div>
         </header>
+        <div class="caja_mititulo">
+            <h1 class="mititle">
+                Bienvenido a tu Biblioteca Online
+            </h1>
+        </div>
     </div>
     <!-- end header section -->
