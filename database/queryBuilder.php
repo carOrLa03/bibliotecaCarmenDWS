@@ -26,6 +26,25 @@ abstract class QueryBuilder
             throw new DataBException("No se ha podido ejecutar la Query solicitada");
         }
     }
+    // funcion para devolver los datos con una condición
+    // si el cod_libro no existe en la tabla prestamos, ese libro está disponible
+    public function findLibrosDisponibles()
+    {
+        try {
+            $sql = "SELECT *
+                     FROM $this->tabla 
+                     WHERE EXITS (SELECT Cod_libroP
+                                    FROM prestamos
+                                    WHERE devuelto == true and
+                                    Cod_libroP == Cod_libro)";
+            $pdoStatment = $this->conexion->prepare($sql);
+            $pdoStatment->execute();
+            return $pdoStatment->fetchAll(PDO::FETCH_CLASS |
+                PDO::FETCH_PROPS_LATE, $this->entidad, $this->args);
+        } catch (DataBException $e) {
+            throw new DataBException("No se ha podido ejecutar la Query solicitada");
+        }
+    }
 
     // método para insertar registros en las tablas
     public function save($entidad)

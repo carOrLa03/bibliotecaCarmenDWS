@@ -5,7 +5,7 @@ class Libros implements IEntity
     private $autor;
     private $genero;
     private $pais_autor;
-    private $num_paginas;
+    private $paginas;
     private $ano_edicion;
 
     public function __construct($nombre, $autor, $genero, $pais, $paginas, $ano)
@@ -15,6 +15,30 @@ class Libros implements IEntity
         $this->genero = $genero;
         $this->pais_autor = $pais;
         $this->num_paginas  = $paginas;
+        $this->ano_edicion = $ano;
+    }
+    public function setNombre($nombre)
+    {
+        $this->nombre_libro = $nombre;
+    }
+    public function setAutor($autor)
+    {
+        $this->autor = $autor;
+    }
+    public function setGenero($genero)
+    {
+        $this->genero = $genero;
+    }
+    public function setPais($pais)
+    {
+        $this->pais_autor = $pais;
+    }
+    public function setPaginas($paginas)
+    {
+        $this->paginas = $paginas;
+    }
+    public function setAnoEdicion($ano)
+    {
         $this->ano_edicion = $ano;
     }
     public function getNombre()
@@ -35,7 +59,7 @@ class Libros implements IEntity
     }
     public function getPaginas()
     {
-        return $this->num_paginas;
+        return $this->paginas;
     }
     public function getAno()
     {
@@ -45,12 +69,12 @@ class Libros implements IEntity
     public function toArray() /*lo usaremos para crear el método save() en queryBuilder*/
     {
         return [
-            'nombre' => $this->getNombre(),
+            'nombre_libro' => $this->getNombre(),
             'autor' => $this->getAutor(),
             'genero' => $this->getGenero(),
-            'pais' => $this->getPais(),
+            'pais_autor' => $this->getPais(),
             'paginas' => $this->getPaginas(),
-            'ano' => $this->getAno()
+            'ano_edicion' => $this->getAno()
         ];
     }
 }

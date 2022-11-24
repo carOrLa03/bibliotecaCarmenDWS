@@ -14,12 +14,10 @@ require_once __DIR__ . "/partials/menu.part.php";
 
     <ul class="filters_menu">
       <li class="active" data-filter="*">Todas</li>
-      <li data-filter=".burger">Novela Extranjera</li>
-      <li data-filter=".pizza">Novela Nacional</li>
+      <li data-filter=".burger">Novela</li>
       <li data-filter=".fries">Misterio</li>
-      <li data-filter=".fries">Fantasia</li>
+      <li data-filter=".pizza">Fantasia</li>
       <li data-filter=".pasta">Infantil</li>
-      <li data-filter=".fries">Educación</li>
 
     </ul>
 
@@ -33,7 +31,7 @@ require_once __DIR__ . "/partials/menu.part.php";
               </div>
               <div class="detail-box">
                 <h5>
-                  Delicious Pizza
+                  Don Quijote de la Mancha II
                 </h5>
                 <p>
                   Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
@@ -50,7 +48,7 @@ require_once __DIR__ . "/partials/menu.part.php";
               </div>
               <div class="detail-box">
                 <h5>
-                  Delicious Burger
+                  El último Emperador
                 </h5>
                 <p>
                   Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
@@ -67,7 +65,7 @@ require_once __DIR__ . "/partials/menu.part.php";
               </div>
               <div class="detail-box">
                 <h5>
-                  Delicious Pizza
+                  Don Quijote de la Mancha I
                 </h5>
                 <p>
                   Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
@@ -84,7 +82,7 @@ require_once __DIR__ . "/partials/menu.part.php";
               </div>
               <div class="detail-box">
                 <h5>
-                  Delicious Pasta
+                  El principito
                 </h5>
                 <p>
                   Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
@@ -101,7 +99,7 @@ require_once __DIR__ . "/partials/menu.part.php";
               </div>
               <div class="detail-box">
                 <h5>
-                  French Fries
+                  Los Windsor
                 </h5>
                 <p>
                   Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
@@ -118,7 +116,7 @@ require_once __DIR__ . "/partials/menu.part.php";
               </div>
               <div class="detail-box">
                 <h5>
-                  Delicious Pizza
+                  Harry Potter y la Piedra filosofal
                 </h5>
                 <p>
                   Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
@@ -135,7 +133,7 @@ require_once __DIR__ . "/partials/menu.part.php";
               </div>
               <div class="detail-box">
                 <h5>
-                  Tasty Burger
+                  Nueva York
                 </h5>
                 <p>
                   Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
@@ -152,7 +150,7 @@ require_once __DIR__ . "/partials/menu.part.php";
               </div>
               <div class="detail-box">
                 <h5>
-                  Tasty Burger
+                  Los Pilares de la Tierra
                 </h5>
                 <p>
                   Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
@@ -169,7 +167,7 @@ require_once __DIR__ . "/partials/menu.part.php";
               </div>
               <div class="detail-box">
                 <h5>
-                  Delicious Pasta
+                  Harry Potter y el caliz de Fuego
                 </h5>
                 <p>
                   Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
@@ -185,10 +183,16 @@ require_once __DIR__ . "/partials/menu.part.php";
         <h2>Nuestro buscador</h2>
       </div>
       <div bucador__seleccion>
-        <select class="select" data-mdb-filter="true">
-          <option value="1">Libros Disponibles</option>
-          <option value="2">Libros Totales</option>
-        </select>
+        <form action="#" method="post">
+          <select class="select" data-mdb-filter="true" name="selectLibros">
+            <option value="1">Libros Disponibles</option>
+            <option value="2">Todos los libros</option>
+          </select>
+          <div class="botonBuscaLibros">
+            <input type="submit" value="Consulta" name="consultaLibros">
+          </div>
+        </form>
+
       </div>
     </div>
   </div>
