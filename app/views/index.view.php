@@ -54,7 +54,7 @@ require_once __DIR__ . "/partials/menu.part.php";
                   Entra a nuestro buscador de libros y encuentra tu próxima lectura. No te quedes con las ganas, tenemos miles de libros a tu disposición.
                 </p>
                 <div class="btn-box">
-                  <a href="" class="btn1">
+                  <a href="libros" class="btn1">
                     Buscar ahora
                   </a>
                 </div>

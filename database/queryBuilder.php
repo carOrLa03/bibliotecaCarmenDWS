@@ -32,11 +32,10 @@ abstract class QueryBuilder
     {
         try {
             $sql = "SELECT *
-                     FROM $this->tabla 
-                     WHERE EXITS (SELECT Cod_libroP
-                                    FROM prestamos
-                                    WHERE devuelto == true and
-                                    Cod_libroP == Cod_libro)";
+                    FROM $this->tabla
+                    WHERE Cod_libro NOT IN (SELECT Cod_libro
+                                            FROM  prestamos
+                                            WHERE devuelto = false)";
             $pdoStatment = $this->conexion->prepare($sql);
             $pdoStatment->execute();
             return $pdoStatment->fetchAll(PDO::FETCH_CLASS |
@@ -45,6 +44,21 @@ abstract class QueryBuilder
             throw new DataBException("No se ha podido ejecutar la Query solicitada");
         }
     }
+    // funcion para cargar los generos de los libros en un select
+    public function rellenaSelect($columna)
+    {
+        try {
+            $sql = "SELECT DISTINCT $columna
+                    FROM $this->tabla";
+            $pdoStatment = $this->conexion->prepare($sql);
+            $pdoStatment->execute();
+            return $pdoStatment->fetchAll(PDO::FETCH_CLASS |
+                PDO::FETCH_PROPS_LATE, $this->entidad, $this->args);
+        } catch (DataBException $e) {
+            throw new DataBException("No se ha podido ejecutar la Query solicitada");
+        }
+    }
+
 
     // método para insertar registros en las tablas
     public function save($entidad)

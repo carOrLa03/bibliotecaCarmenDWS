@@ -2,24 +2,32 @@
 class Libros implements IEntity
 {
     private $nombre_libro;
+    private $editorial;
     private $autor;
     private $genero;
     private $pais_autor;
     private $paginas;
+    private $precio;
     private $ano_edicion;
 
-    public function __construct($nombre, $autor, $genero, $pais, $paginas, $ano)
+    public function __construct($nombre, $editorial, $autor, $genero, $pais, $paginas, $precio, $ano)
     {
         $this->nombre_libro = $nombre;
+        $this->editorial = $editorial;
         $this->autor = $autor;
         $this->genero = $genero;
         $this->pais_autor = $pais;
         $this->num_paginas  = $paginas;
+        $this->precio = $precio;
         $this->ano_edicion = $ano;
     }
     public function setNombre($nombre)
     {
         $this->nombre_libro = $nombre;
+    }
+    public function setEditorial($editorial)
+    {
+        $this->editorial = $editorial;
     }
     public function setAutor($autor)
     {
@@ -37,6 +45,10 @@ class Libros implements IEntity
     {
         $this->paginas = $paginas;
     }
+    public function setPrecio($precio)
+    {
+        $this->precio = $precio;
+    }
     public function setAnoEdicion($ano)
     {
         $this->ano_edicion = $ano;
@@ -44,6 +56,10 @@ class Libros implements IEntity
     public function getNombre()
     {
         return $this->nombre_libro;
+    }
+    public function getEditorial()
+    {
+        return $this->editorial;
     }
     public function getAutor()
     {
@@ -61,6 +77,10 @@ class Libros implements IEntity
     {
         return $this->paginas;
     }
+    public function getPrecio()
+    {
+        return $this->precio;
+    }
     public function getAno()
     {
         return $this->ano_edicion;
@@ -70,10 +90,12 @@ class Libros implements IEntity
     {
         return [
             'nombre_libro' => $this->getNombre(),
+            'editorial' => $this->getEditorial(),
             'autor' => $this->getAutor(),
             'genero' => $this->getGenero(),
             'pais_autor' => $this->getPais(),
             'paginas' => $this->getPaginas(),
+            'precio' => $this->getPrecio(),
             'ano_edicion' => $this->getAno()
         ];
     }

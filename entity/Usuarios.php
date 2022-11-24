@@ -79,13 +79,13 @@ class Usuarios implements IEntity
     public function toArray() /*lo usaremos para crear el método save() en queryBuilder*/
     {
         return [
-            'nombre' => $this->getNombre(),
-            'apellidos' => $this->getApellidos(),
-            'dni' => $this->getDni(),
-            'domicilio' => $this->getDomicilio(),
-            'poblacion' => $this->getPoblacion(),
-            'provincia' => $this->getProvincia(),
-            'fnace' => $this->getFnace()
+            'Nombre' => $this->getNombre(),
+            'Apellidos' => $this->getApellidos(),
+            'DNI' => $this->getDni(),
+            'Domicilio' => $this->getDomicilio(),
+            'Poblacion' => $this->getPoblacion(),
+            'Provincia' => $this->getProvincia(),
+            'Fecha_nacimiento' => $this->getFnace()
         ];
     }
 }
