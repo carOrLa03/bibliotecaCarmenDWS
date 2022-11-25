@@ -6,6 +6,7 @@ $router->define(
         'libros' => 'app/controllers/libros.php',
         'colaboradores' => 'app/controllers/colaboradores.php',
         'contacto' => 'app/controllers/contacto.php',
-        'zonaPersonal' => 'app/controllers/zonaPersonal.php'
+        'zonaPersonal' => 'app/controllers/zonaPersonal.php',
+        'administracion' => 'app/controllers/administracion.php'
     ]
 );

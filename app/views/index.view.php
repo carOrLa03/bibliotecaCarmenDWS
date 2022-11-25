@@ -126,7 +126,7 @@ require_once __DIR__ . "/partials/menu.part.php";
         <div class="col-md-6  ">
           <div class="box ">
             <div class="img-box">
-              <img src="/images/libro2.jpg" alt="">
+              <img src="/images/maquinaescribir.jpg" alt="">
             </div>
             <div class="detail-box">
               <h5>

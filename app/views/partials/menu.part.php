@@ -34,7 +34,7 @@
     <!-- header section strats -->
     <div class="hero_area">
         <div class="bg-box">
-            <img src="/images/library.jpg" alt="LIBRERIA">
+            <img src="/images/libroluz.jpg" alt="LIBRERIA">
         </div>
         <header class="header_section">
             <?php
@@ -42,18 +42,12 @@
             ?>
             <div class="container">
                 <nav class="navbar navbar-expand-lg custom_nav-container ">
-                    <a class="navbar-brand" href="home">
-                        <span>
-                            Biblioteca
-                        </span>
-                    </a>
-
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class=""> </span>
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav  mx-auto ">
+                        <ul class="navbar-nav  mx-auto">
                             <li class="nav-item <?php isActive("index") ?>">
                                 <a class="nav-link" href="home">Home</a>
                             </li>
@@ -68,6 +62,9 @@
                             </li>
                             <li class="nav-item <?php isActive("zonaPersonal") ?>">
                                 <a class="nav-link" href="zonaPersonal">Zona Personal</a>
+                            </li>
+                            <li class="nav-item <?php isActive("administracion") ?>">
+                                <a class="nav-link" href="administracion">Administración</a>
                             </li>
                         </ul>
                         <div class="user_option">

@@ -1,80 +1,80 @@
 <?php
 class Usuarios implements IEntity
 {
-    private $nombre;
-    private $apellidos;
-    private $dni;
-    private $domicilio;
-    private $poblacion;
-    private $provincia;
-    private $fNacimiento;
+    private $Nombre;
+    private $Apellidos;
+    private $DNI;
+    private $Domicilio;
+    private $Poblacion;
+    private $Provincia;
+    private $Fecha_nacimiento;
 
     public function __construct($nombre, $apellidos, $dni, $domicilio, $poblacion, $provincia,  $fnacimiento)
     {
-        $this->nombre = $nombre;
-        $this->apelliddos = $apellidos;
-        $this->dni = $dni;
-        $this->domicilio = $domicilio;
-        $this->poblacion = $poblacion;
-        $this->provincia = $provincia;
-        $this->fNacimiento = $fnacimiento;
+        $this->Nombre = $nombre;
+        $this->Apellidos = $apellidos;
+        $this->DNI = $dni;
+        $this->Domicilio = $domicilio;
+        $this->Poblacion = $poblacion;
+        $this->Provincia = $provincia;
+        $this->Fecha_nacimiento = $fnacimiento;
     }
 
     public function setNom($nombre)
     {
-        $this->nombre = $nombre;
+        $this->Nombre = $nombre;
     }
     public function setApellidos($apellidos)
     {
-        $this->apellidos = $apellidos;
+        $this->Apellidos = $apellidos;
     }
     public function setDni($dni)
     {
-        $this->dni = $dni;
+        $this->DNI = $dni;
     }
     public function setDomicilio($domicilio)
     {
-        $this->domicilio = $domicilio;
+        $this->Domicilio = $domicilio;
     }
     public function setPob($poblacion)
     {
-        $this->poblacion = $poblacion;
+        $this->Poblacion = $poblacion;
     }
     public function setProv($provincia)
     {
-        $this->provincia = $provincia;
+        $this->Provincia = $provincia;
     }
     public function setFNace($fnace)
     {
-        $this->fNacimiento = $fnace;
+        $this->Fecha_nacimiento = $fnace;
     }
     public function getNombre()
     {
-        return $this->nombre;
+        return $this->Nombre;
     }
     public function getApellidos()
     {
-        return $this->apellidos;
+        return $this->Apellidos;
     }
     public function getDni()
     {
-        return $this->dni;
+        return $this->DNI;
     }
     public function getDomicilio()
     {
-        return $this->domicilio;
+        return $this->Domicilio;
     }
     public function getPoblacion()
     {
-        return $this->poblacion;
+        return $this->Poblacion;
     }
     public function getProvincia()
     {
-        return $this->provincia;
+        return $this->Provincia;
     }
     public function getFnace()
     {
-        return $this->fNacimiento;
+        return $this->Fecha_nacimiento;
     }
     public function toArray() /*lo usaremos para crear el método save() en queryBuilder*/
     {

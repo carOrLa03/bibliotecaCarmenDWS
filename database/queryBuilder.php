@@ -58,6 +58,23 @@ abstract class QueryBuilder
             throw new DataBException("No se ha podido ejecutar la Query solicitada");
         }
     }
+    // funcion para saber los prestamos de cada usuario
+    public function prestamosUsuarios($nombreUsuario)
+    {
+        try {
+            $sql = "SELECT *
+                    FROM $this->tabla
+                    WHERE Cod_usuario in (SELECT Cod_usuario
+                                            FROM usuarios
+                                            WHERE Nombre = '$nombreUsuario')";
+            $pdoStatment = $this->conexion->prepare($sql);
+            $pdoStatment->execute();
+            return $pdoStatment->fetchAll(PDO::FETCH_CLASS |
+                PDO::FETCH_PROPS_LATE, $this->entidad, $this->args);
+        } catch (DataBException $e) {
+            throw new DataBException("No se ha podido ejecutar la Query solicitada");
+        }
+    }
 
 
     // método para insertar registros en las tablas

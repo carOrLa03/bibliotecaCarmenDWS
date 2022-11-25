@@ -115,7 +115,7 @@ a:focus {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-     opacity: 0.8;
+     opacity: 1;
 }
 
 .sub_page .hero_area {
@@ -138,15 +138,15 @@ a:focus {
      object-position: right top;
 }
 .caja_mititulo{
+  position: relative;
+  margin-top: 15em;
+  text-align: center;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 .mititle{
   font-size: 5em;
   font-weight: 5em;
-  color: #0c0c0c;
+  color: #eca712;
 }
 .header_section {
   padding: 50px 0;
@@ -178,7 +178,7 @@ a:focus {
 
 .custom_nav-container .navbar-nav .nav-item .nav-link {
   padding: 5px 20px;
-  color: #ffffff;
+  color:#ffffff;
   text-align: center;
   text-transform: uppercase;
   border-radius: 5px;
@@ -950,6 +950,26 @@ margin-bottom: 10px;
   display: flex;
   justify-content: space-around;
 }
+/* CSS ADMINISTRACION */
+.btn-group{
+  margin: 2em auto;
+  
+}
+.btn-warning{
+  border-radius: 15px;
+  color: #ffffff;
+}
+.form-usuario, 
+.form-prestamo{
+  margin: 2em auto;
+  padding: 2em;
+  border-radius: 25px;
+  box-shadow: 5px 5px 20px #222831, -5px -5px 20px #222831;
+}
+.noVer{
+  display: none;
+}
+/* FIN DE ADMINISTRACION */
 .footer_section .footer_contact .contact_link_box {
   display: -webkit-box;
   display: -ms-flexbox;

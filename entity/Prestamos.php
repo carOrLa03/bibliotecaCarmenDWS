@@ -1,81 +1,81 @@
 <?php
 class Prestamos implements IEntity
 {
-    private $cod_libro;
-    private $cod_usuario;
-    private $f_salida;
-    private $f_max_dev;
-    private $f_devolucion;
-    private $devuelto;
+    private $Cod_libro;
+    private $Cod_usuario;
+    private $Fecha_salida;
+    private $Fecha_maxima_dev;
+    private $Fecha_devolucion;
+    private $Devuelto;
 
     public function __construct($libro, $usuario, $salida, $max_dev, $f_devolucion, $devuelto)
     {
-        $this->cod_libro = $libro;
-        $this->cod_usuario = $usuario;
-        $this->f_salida = $salida;
-        $this->f_max_dev = $max_dev;
-        $this->f_devolucion = $f_devolucion;
-        $this->devuelto = $devuelto;
+        $this->Cod_libro = $libro;
+        $this->Cod_usuario = $usuario;
+        $this->Fecha_salida = $salida;
+        $this->Fecha_maxima_dev = $max_dev;
+        $this->fecha_devolucion = $f_devolucion;
+        $this->Devuelto = $devuelto;
     }
     public function setC_Libro($libro)
     {
-        $this->cod_libro = $libro;
+        $this->Cod_libro = $libro;
     }
     public function setC_Usuario($usuario)
     {
-        $this->cod_usuario = $usuario;
+        $this->Cod_usuario = $usuario;
     }
     public function setFSalida($salida)
     {
-        $this->f_salida = $salida;
+        $this->Fecha_salida = $salida;
     }
     public function setFMaxDev($f_max_dev)
     {
-        $this->f_max_dev = $f_max_dev;
+        $this->Fecha_maxima_dev = $f_max_dev;
     }
     public function setFDevolucion($f_dev)
     {
-        $this->f_devolucion = $f_dev;
+        $this->Fecha_devolucion = $f_dev;
     }
     public function setDevuelto($devuelto)
     {
-        $this->devuelto = $devuelto;
+        $this->Devuelto = $devuelto;
     }
     public function getCLibro()
     {
-        return $this->cod_libro;
+        return $this->Cod_libro;
     }
     public function getCUsuario()
     {
-        return $this->cod_usuario;
+        return $this->Cod_usuario;
     }
     public function getFSalida()
     {
-        return $this->f_salida;
+        return $this->Fecha_salida;
     }
     public function getFMaxDev()
     {
-        return $this->f_max_dev;
+        return $this->Fecha_maxima_dev;
     }
     public function getFDevolucion()
     {
-        return $this->f_devolucion;
+        return $this->Fecha_devolucion;
     }
     public function getDevuelto()
     {
-        return $this->devuelto;
+        return $this->Devuelto;
     }
 
 
     public function toArray() /*lo usaremos para crear el método save() en queryBuilder*/
     {
         return [
-            'codLibro' => $this->getCLibro(),
-            'codUsuario' => $this->getCUsuario(),
-            'fechaSalida' => $this->getFSalida(),
-            'fechaMaxDev' => $this->getFMaxDev(),
-            'fechaDevolucion' => $this->getFDevolucion(),
-            'devuelto' => $this->getDevuelto()
+            'Cod_libro' => $this->getCLibro(),
+            'Cod_usuario' => $this->getCUsuario(),
+            'Fecha_salida' => $this->getFSalida(),
+            'Fecha_maxima_dev' => $this->getFMaxDev(),
+            'Fecha_devolucion' => $this->getFDevolucion(),
+            'Devuelto' => $this->getDevuelto()
         ];
     }
 }
