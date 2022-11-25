@@ -601,10 +601,6 @@ a:focus {
   -webkit-transform: scale(1.2);
           transform: scale(1.2);
 }
-.buscador{
-
-}
-.buscador__titulo{}
 .food_section .btn-box {
   display: -webkit-box;
   display: -ms-flexbox;
