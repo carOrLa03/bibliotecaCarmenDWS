@@ -1,6 +1,7 @@
 <?php
 class Usuarios implements IEntity
 {
+    private $Cod_usuario;
     private $Nombre;
     private $Apellidos;
     private $DNI;
@@ -11,6 +12,7 @@ class Usuarios implements IEntity
 
     public function __construct($nombre, $apellidos, $dni, $domicilio, $poblacion, $provincia,  $fnacimiento)
     {
+        $this->cod_usuario = 0;
         $this->Nombre = $nombre;
         $this->Apellidos = $apellidos;
         $this->DNI = $dni;
@@ -48,6 +50,10 @@ class Usuarios implements IEntity
     {
         $this->Fecha_nacimiento = $fnace;
     }
+    public function getCodigo()
+    {
+        return $this->Cod_usuario;
+    }
     public function getNombre()
     {
         return $this->Nombre;
@@ -79,6 +85,7 @@ class Usuarios implements IEntity
     public function toArray() /*lo usaremos para crear el método save() en queryBuilder*/
     {
         return [
+            'Cod_usuario' => $this->getCodigo(),
             'Nombre' => $this->getNombre(),
             'Apellidos' => $this->getApellidos(),
             'DNI' => $this->getDni(),

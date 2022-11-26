@@ -1,6 +1,7 @@
 <?php
 class Libros implements IEntity
 {
+    private $Cod_libro;
     private $nombre_libro;
     private $editorial;
     private $autor;
@@ -12,6 +13,7 @@ class Libros implements IEntity
 
     public function __construct($nombre, $editorial, $autor, $genero, $pais, $paginas, $precio, $ano)
     {
+        $this->Cod_libro = 0;
         $this->nombre_libro = $nombre;
         $this->editorial = $editorial;
         $this->autor = $autor;
@@ -53,6 +55,10 @@ class Libros implements IEntity
     {
         $this->ano_edicion = $ano;
     }
+    public function getCodigo()
+    {
+        return $this->Cod_libro;
+    }
     public function getNombre()
     {
         return $this->nombre_libro;
@@ -89,6 +95,7 @@ class Libros implements IEntity
     public function toArray() /*lo usaremos para crear el método save() en queryBuilder*/
     {
         return [
+            'Cod_libro' => $this->getCodigo(),
             'nombre_libro' => $this->getNombre(),
             'editorial' => $this->getEditorial(),
             'autor' => $this->getAutor(),
