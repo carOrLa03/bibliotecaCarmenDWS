@@ -59,14 +59,12 @@ abstract class QueryBuilder
         }
     }
     // funcion para saber los prestamos de cada usuario
-    public function prestamosUsuarios($nombreUsuario)
+    public function prestamosUsuarios($codUsuario)
     {
         try {
             $sql = "SELECT *
                     FROM $this->tabla
-                    WHERE Cod_usuario in (SELECT Cod_usuario
-                                            FROM usuarios
-                                            WHERE Nombre = '$nombreUsuario')";
+                    WHERE Cod_usuario = '$codUsuario'";
             $pdoStatment = $this->conexion->prepare($sql);
             $pdoStatment->execute();
             return $pdoStatment->fetchAll(PDO::FETCH_CLASS |
@@ -75,7 +73,20 @@ abstract class QueryBuilder
             throw new DataBException("No se ha podido ejecutar la Query solicitada");
         }
     }
-
+    // función para modificar registro de una tabla
+    public function updateRegistro($datoNuevo, $numRegistro)
+    {
+        try {
+            $sql = "UPDATE $this->tabla
+                    SET Fecha_devolucion = '$datoNuevo', Devuelto = 'true'
+                    WHERE Num_pedido = '$numRegistro'";
+            $pdoStatment = $this->conexion->prepare($sql);
+            $pdoStatment->execute();
+            return "El registro ha sido modificado";
+        } catch (DataBException $e) {
+            throw new DataBException("No se ha podido ejecutar la Query solicitada");
+        }
+    }
 
     // método para insertar registros en las tablas
     public function save($entidad)

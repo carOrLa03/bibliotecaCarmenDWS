@@ -13,10 +13,12 @@ const formLibro = document.getElementById("form-libros");
 // si clicko en nuevo USUARIO aparece, cuando lo envío desaparece
 btnNuevoUsuario.addEventListener("click", (e) => {
   e.preventDefault();
+  noverTablas();
   formUsuario.classList.remove("noVer");
   // si se ve el formulario de usuarios, los otros dos no se ven
   formLibro.classList.add("noVer");
   fP.classList.add("noVer");
+
   const btnEnviaUsuario = document.getElementById("enviaUsuario");
   btnEnviaUsuario.addEventListener("click", (e) => {
     e.preventDefault();
@@ -31,6 +33,7 @@ btnNuevoPrestamo.addEventListener("click", (e) => {
   // si se ve el formulario de prestamos, los otros dos no se ven
   formUsuario.classList.add("noVer");
   formLibro.classList.add("noVer");
+  noverTablas();
 });
 btnEnviaPrestamo.addEventListener("click", (e) => {
   e.preventDefault();
@@ -44,6 +47,7 @@ btnNuevolibro.addEventListener("click", (e) => {
   // si se ve el formulario de libros, los otros dos no se ven
   formUsuario.classList.add("noVer");
   fP.classList.add("noVer");
+  noverTablas();
 });
 btnEnviaLibro.addEventListener("click", (e) => {
   e.preventDefault();
@@ -55,22 +59,21 @@ const mostrarUsuarios = document.getElementById("mostrarUsuarios");
 const mostrarPrestamos = document.getElementById("mostrarPrestamos");
 const mostrarMensajes = document.getElementById("mostrarMensajes");
 
-mostrarUsuarios.addEventListener("click", (e) => {
-  e.preventDefault();
-  nomostrar();
-  let resultado = "<?php mostrarUsuarios()?>";
-  document.write(resultado);
-});
-mostrarPrestamos.addEventListener("click", (e) => {
-  e.preventDefault();
+mostrarUsuarios.addEventListener("submit", (e) => {
   nomostrar();
 });
-mostrarMensajes.addEventListener("click", (e) => {
-  e.preventDefault();
+mostrarPrestamos.addEventListener("submit", (e) => {
+  nomostrar();
+});
+mostrarMensajes.addEventListener("submit", (e) => {
   nomostrar();
 });
 function nomostrar() {
   formUsuario.classList.add("noVer");
   fP.classList.add("noVer");
   formLibro.classList.add("noVer");
+}
+const sectionMostrarTablas = document.getElementById("mostrarTablas");
+function noverTablas() {
+  sectionMostrarTablas.classList.add("noVer");
 }

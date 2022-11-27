@@ -14,6 +14,7 @@ require_once __DIR__ . "/partials/menu.part.php";
             try {
                 $usuarioRepositorio = new UsuariosRepository();
                 $arrayUsuarios = $usuarioRepositorio->findAll();
+                $nombre = "";
             ?>
                 <div class="form_container">
                     <form action=" #" method="post" class="">
@@ -22,11 +23,12 @@ require_once __DIR__ . "/partials/menu.part.php";
 
                                 <?php
                                 foreach ($arrayUsuarios as $usuarios) {
+                                    $codUsuario = $usuarios->getCodigo();
                                     $nombre = $usuarios->getNombre();
 
                                     echo <<< EOT
-                        <option value="$nombre">$nombre</option>
-                    EOT;
+                                        <option value="$codUsuario">$nombre</option>
+                                    EOT;
                                 }
                                 ?>
                             </select>
@@ -42,9 +44,15 @@ require_once __DIR__ . "/partials/menu.part.php";
 
         <?php
                 $prestamosRepositorio = new PrestamosRepositorio();
+                $librosRepositorio = new LibrosRepository();
+                $arraylibros = $librosRepositorio->findAll();
+
                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                    $nombreUsuario = $_POST['nUsuario'];
-                    $arrayPrestamos = $prestamosRepositorio->prestamosUsuarios($nombreUsuario);
+                    $numUsuario = $_POST['nUsuario'];
+                    $arrayPrestamos = $prestamosRepositorio->prestamosUsuarios($numUsuario);
+                    if (empty($arrayPrestamos)) {
+                        throw new MiExcepcion("No tienes prestamos.");
+                    }
         ?>
             <div>
                 <table class="table table-striped">
@@ -61,22 +69,32 @@ require_once __DIR__ . "/partials/menu.part.php";
                     </thead>
                     <tbody>
                         <?php
+
                         foreach ($arrayPrestamos as $prestamo) {
-                            $codLibro = $prestamo->getCLibro();
+                            $codLibroPres = $prestamo->getCLibro();
                             $codUsuario = $prestamo->getCUsuario();
                             $feSalida = $prestamo->getFSalida();
                             $feMaxDev = $prestamo->getFMaxDev();
                             $feDevolucion = $prestamo->getFDevolucion();
                             $devuelto = $prestamo->getDevuelto();
+                            $nomLibro;
+                            foreach ($arraylibros as $libro) {
+                                $codLibro = $libro->getCodigo();
+                                if ($codLibro == $codLibroPres) {
+                                    $nomLibro = $libro->getNombre();
+                                    break;
+                                }
+                            }
 
                             echo <<< EOT
                             <tr>
-                                <th>$codLibro</th>
+                                <th>$codLibroPres</th>
                                 <th>$codUsuario</th>
                                 <th>$feSalida</th>
                                 <th>$feMaxDev</th>
                                 <th>$feDevolucion</th>
                                 <th>$devuelto</th>
+                                <th>$nomLibro</th>
                             </tr>
                             EOT;
                         }
@@ -91,6 +109,11 @@ require_once __DIR__ . "/partials/menu.part.php";
                 echo "<div class='alert alert-danger' role='alert'>
             $mensaje 
            </div>";
+            } catch (MiExcepcion $e) {
+                $mensaje = $e->getMessage();
+                echo "<div class='alert alert-danger' role='alert'>
+                $mensaje 
+               </div>";
             }
 
     ?>

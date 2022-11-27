@@ -3,11 +3,13 @@
 require_once __DIR__ . "/../../exceptions/AppException.php";
 require_once __DIR__ . "/../../exceptions/DataBaseException.php";
 require_once __DIR__ . "/../../exceptions/FileException.php";
+require_once __DIR__ . "/../../exceptions/MiExcepcion.php";
 require_once __DIR__ . "/../../database/lentity.php";
 require_once __DIR__ . "/../../entity/Colaboradores.php";
 require_once __DIR__ . "/../../entity/Usuarios.php";
 require_once __DIR__ . "/../../entity/Libros.php";
 require_once __DIR__ . "/../../entity/Prestamos.php";
+require_once __DIR__ . "/../../entity/Mensajes.php";
 require_once __DIR__ . "/../../utils/file.php";
 require_once __DIR__ . "/../../utils/utils.php";
 
@@ -17,7 +19,9 @@ require_once __DIR__ . "/../../repository/ColaboradorRepositorio.php";
 require_once __DIR__ . "/../../repository/LibrosRepository.php";
 require_once __DIR__ . "/../../repository/PrestamosRepositorio.php";
 require_once __DIR__ . "/../../repository/UsuariosRepositorio.php";
+require_once __DIR__ . "/../../repository/MensajesRepository.php";
 require_once __DIR__ . "/../../core/bootstrap.php";
+require_once __DIR__ . "/../views/partials/menu.part.php";
 
 if (isset($_POST['enviaUusuario'])) {
     $nomUsuario = htmlspecialchars(trim($_POST['nomUsuario']));
@@ -103,48 +107,5 @@ if (isset($_POST['enviaLibro'])) {
             </div>";
     }
 }
-
-function mostrarUsuarios()
-{
-    $usuarioRepositorio = new UsuariosRepository();
-    $arrayUsuarios = $usuarioRepositorio->findAll();
-    echo "<table class='table table-striped'>
-    <thead>
-    <tr>
-    <th>Nombre</th>
-    <th>Apellidos</th>
-    <th>DNI</th>
-    <th>Domicilio</th>
-    <th>Población</th>
-    <th>Provincia</th>
-    <th>Fecha de nacimiento</th>
-    </tr>
-    </thead> 
-    <tbody>";
-    foreach ($arrayUsuarios as $usuario) {
-        $nombre = $usuario->getNombre();
-        $apellidos = $usuario->getApellidos();
-        $dni = $usuario->getDni();
-        $domicilio = $usuario->getDomicilio();
-        $poblacion = $usuario->getPoblacion();
-        $provincia = $usuario->getProvincia();
-        $nace = $usuario->getFnace();
-
-        echo <<< EOT
-            <th>$nombre</th>
-            <th>$apellidos</th>
-            <th>$dni</th>
-            <th>$domicilio</th>
-            <th>$poblacion</th>
-            <th>$provincia</th>
-            <th>$nace</th>
-        EOT;
-    }
-    echo "        
-    </tbody>
-    </table>";
-}
-// if (isset($_POST['mostrarUsuarios'])) {
-//     echo "hola";
-// }
+// header('Location: administracion.view.php');
 require_once __DIR__ . "/../views/administracion.view.php";

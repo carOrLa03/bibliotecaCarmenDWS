@@ -1,6 +1,7 @@
 <?php
 class Prestamos implements IEntity
 {
+    private $Num_pedido;
     private $Cod_libro;
     private $Cod_usuario;
     private $Fecha_salida;
@@ -10,6 +11,7 @@ class Prestamos implements IEntity
 
     public function __construct($libro, $usuario, $salida, $max_dev, $f_devolucion, $devuelto)
     {
+        $this->Num_pedido = 0;
         $this->Cod_libro = $libro;
         $this->Cod_usuario = $usuario;
         $this->Fecha_salida = $salida;
@@ -41,6 +43,10 @@ class Prestamos implements IEntity
     {
         $this->Devuelto = $devuelto;
     }
+    public function getNumPedido()
+    {
+        return $this->Num_pedido;
+    }
     public function getCLibro()
     {
         return $this->Cod_libro;
@@ -70,6 +76,7 @@ class Prestamos implements IEntity
     public function toArray() /*lo usaremos para crear el método save() en queryBuilder*/
     {
         return [
+            'Num_pedido' => $this->getNumPedido(),
             'Cod_libro' => $this->getCLibro(),
             'Cod_usuario' => $this->getCUsuario(),
             'Fecha_salida' => $this->getFSalida(),

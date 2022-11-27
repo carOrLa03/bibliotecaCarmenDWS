@@ -3,6 +3,7 @@
 require_once __DIR__ . "/../../exceptions/AppException.php";
 require_once __DIR__ . "/../../exceptions/DataBaseException.php";
 require_once __DIR__ . "/../../exceptions/FileException.php";
+require_once __DIR__ . "/../../exceptions/MiExcepcion.php";
 require_once __DIR__ . "/../../database/lentity.php";
 require_once __DIR__ . "/../../entity/Colaboradores.php";
 require_once __DIR__ . "/../../entity/Usuarios.php";

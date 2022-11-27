@@ -957,7 +957,8 @@ margin-bottom: 10px;
 }
 .form-usuario, 
 .form-prestamo,
-.form-libros{
+.form-libros,
+.form-devolucion{
   margin: 2em auto;
   padding: 2em;
   border-radius: 25px;
