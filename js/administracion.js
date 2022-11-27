@@ -34,10 +34,10 @@ btnNuevoPrestamo.addEventListener("click", (e) => {
   formUsuario.classList.add("noVer");
   formLibro.classList.add("noVer");
   noverTablas();
-});
-btnEnviaPrestamo.addEventListener("click", (e) => {
-  e.preventDefault();
-  fP.classList.add("noVer");
+  btnEnviaPrestamo.addEventListener("click", (e) => {
+    e.preventDefault();
+    fP.classList.add("noVer");
+  });
 });
 
 // si clicko en nuevo libro aparece, cuando lo envío desaparece
@@ -48,10 +48,10 @@ btnNuevolibro.addEventListener("click", (e) => {
   formUsuario.classList.add("noVer");
   fP.classList.add("noVer");
   noverTablas();
-});
-btnEnviaLibro.addEventListener("click", (e) => {
-  e.preventDefault();
-  formLibro.classList.add("noVer");
+  btnEnviaLibro.addEventListener("click", (e) => {
+    e.preventDefault();
+    formLibro.classList.add("noVer");
+  });
 });
 
 // BOTONES DE MOSTRAR

@@ -32,23 +32,42 @@ if (isset($_POST['enviaUusuario'])) {
     $provincia = htmlspecialchars(trim($_POST['provincia']));
     $fecha = htmlspecialchars(trim($_POST['fecha_nac']));
     try {
-        $usuarioRep = new UsuariosRepository();
-        $usuario = new Usuarios($nomUsuario, $apellidos, $dni, $domicilio, $poblacion, $provincia, $fecha);
-        $usuarioRep->save($usuario);
-        $mensaje = " Usuario guardado correctamente.";
-        echo "<div class='alert alert-success' role='alert'>
-         $mensaje 
-        </div>";
+        if ((!preg_match("/^[a-zA-Z]+/", $nomUsuario) || strlen($nomUsuario) < 5)) {
+            throw new MiExcepcion("El nombre no es correcto.");
+        } else if (!preg_match("/^[a-zA-Z]+/", $apellidos)) {
+            throw new MiExcepcion("Los apellidos no son correctos.");
+        } else if (!valida_dni($dni)) {
+            throw new MiExcepcion("El DNI no es correcto.");
+        } else if (!preg_match("/^[a-zA-Z]+/", $poblacion)) {
+            throw new MiExcepcion("La poblacion no es correcta.");
+        } else if (!preg_match("/^[a-zA-Z]+/", $provincia)) {
+            throw new MiExcepcion("La provincia no es correcta.");
+        } else if (valida_fecha($fecha) != false) {
+            throw new MiExcepcion("La fecha no es correcta.");
+        } else {
+            $usuarioRep = new UsuariosRepository();
+            $usuario = new Usuarios($nomUsuario, $apellidos, $dni, $domicilio, $poblacion, $provincia, $fecha);
+            $usuarioRep->save($usuario);
+            $mensaje = " Usuario guardado correctamente.";
+            echo "<div class='alert alert-success' role='alert'>
+             $mensaje 
+            </div>";
+        }
     } catch (DataBException $e) {
         $mensaje = $e->getMessage();
         echo "<div class='alert alert-danger' role='alert'>
-        $mensaje 
-       </div>";
+            $mensaje 
+           </div>";
     } catch (AppException $e) {
         $mensaje = $e->getMessage();
         echo "<div class='alert alert-danger' role='alert'>
+                $mensaje 
+                </div>";
+    } catch (MiExcepcion $e) {
+        $mensaje  = $e->getMessage();
+        echo "<div class='alert alert-danger' role='alert'>
             $mensaje 
-            </div>";
+           </div>";
     }
 }
 if (isset($_POST['enviaprestamo'])) {
@@ -56,16 +75,15 @@ if (isset($_POST['enviaprestamo'])) {
     $codUsuario = $_POST['codUsuario'];
     $salida = htmlspecialchars(trim($_POST['salida']));
     $fMaxDev = htmlspecialchars(trim($_POST['fmaxDev']));
-    $devolucion = htmlspecialchars(trim($_POST['devolucion']));
     $devuelto = $_POST['devuelto'] == "si" ? "true" : "false";
     try {
         $prestamoRep = new PrestamosRepositorio();
-        $newPrestamo = new Prestamos($codLibro, $codUsuario, $salida, $fMaxDev, $devolucion, $devuelto);
+        $newPrestamo = new Prestamos($codLibro, $codUsuario, $salida, $fMaxDev, 'null', $devuelto);
         $prestamoRep->save($newPrestamo);
         $mensaje = "Prestamo correctamente.";
         echo "<div class='alert alert-success' role='alert'>
-         $mensaje 
-        </div>";
+             $mensaje 
+            </div>";
     } catch (DataBException $e) {
         $mensaje = $e->getMessage();
         echo "<div class='alert alert-danger' role='alert'>
@@ -84,7 +102,7 @@ if (isset($_POST['enviaLibro'])) {
     $autor = htmlspecialchars(trim($_POST['autor']));
     $genero = htmlspecialchars(trim($_POST['genero']));
     $pais = htmlspecialchars(trim($_POST['pais']));
-    $paginas = intval($_POST['paginas']);
+    $paginas = (int)$_POST['paginas'];
     $precio = htmlspecialchars(trim($_POST['precio']));
     $anoEdicion = (int)$_POST['ano'];
     try {
@@ -107,5 +125,4 @@ if (isset($_POST['enviaLibro'])) {
             </div>";
     }
 }
-// header('Location: administracion.view.php');
 require_once __DIR__ . "/../views/administracion.view.php";

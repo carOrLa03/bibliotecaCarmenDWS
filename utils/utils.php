@@ -16,3 +16,25 @@ function mezclar($array)
     $seleccion = array_chunk($array, 3);
     return $seleccion[0];
 }
+
+// función para validar DNI
+function valida_dni($dni)
+{
+    $letter = substr($dni, -1);
+    $numbers = substr($dni, 0, -1);
+
+    if (substr("TRWAGMYFPDXBNJZSQVHLCKE", $numbers % 23, 1) == $letter && strlen($letter) == 1 && strlen($numbers) == 8) {
+        return true;
+    }
+    return false;
+}
+
+// funciónes para validar fechas
+function valida_fecha($fecha)
+{
+    $dia = (int)substr($fecha, 0, 1);
+    $mes = (int)substr($fecha, 3, 4);
+    $año = (int)substr($fecha, 6, 9);
+
+    return checkdate($dia, $mes, $año);
+}

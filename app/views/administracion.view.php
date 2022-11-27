@@ -68,7 +68,7 @@
                 <?php
                 try {
                     $libroRep = new LibrosRepository();
-                    $arrayLibros = $libroRep->findAll();
+                    $arrayLibros = $libroRep->findLibrosDisponibles();
                 ?>
                     <select class="form-select form-select-lg" aria-label=".form-select-lg example" name="codLibro" id="validationCustom01">
 
@@ -87,8 +87,8 @@
                 } catch (DataBException $e) {
                     $mensaje = $e->getMessage();
                     echo "<div class='alert alert-danger' role='alert'>
-                $mensaje 
-               </div>";
+                        $mensaje 
+                        </div>";
                 }
         ?>
 
@@ -106,8 +106,8 @@
                         $codigo = $usuarios->getCodigo();
 
                         echo <<< EOT
-                                <option value="$codigo">$codigo</option>
-                            EOT;
+                                    <option value="$codigo">$codigo</option>
+                                 EOT;
                     }
                     ?>
                 </select>
@@ -116,27 +116,22 @@
             } catch (DataBException $e) {
                 $mensaje = $e->getMessage();
                 echo "<div class='alert alert-danger' role='alert'>
-                $mensaje 
-               </div>";
+                    $mensaje 
+                    </div>";
             }
     ?>
 
-    <div class="col-md-3">
+    <div class="col-md-4">
         <label for="validationDefault02" class="form-label">Fecha Salida</label>
         <input type="text" class="form-control" id="validationDefault02" name="salida" required>
     </div>
 
-    <div class="col-md-3">
+    <div class="col-md-4">
         <label for="validationDefault03" class="form-label">Fecha Máxima de Devolución</label>
         <input type="text" class="form-control" id="validationDefault03" name="fmaxDev" required>
     </div>
     <div class="col-md-3">
-        <label for="validationDefault03" class="form-label">Fecha Devolución</label>
-        <input type="text" class="form-control" id="validationDefault03" name="devolucion" required>
-    </div>
-    <div class="col-md-3">
-        <!-- <label for="validationDefault04" class="form-label">Devuelto</label> -->
-        <select class="form-select form-select-lg" aria-label=".form-select-lg      example" name="devuelto" id="validationDefault04">
+        <select class="form-select form-select-lg" aria-label=".form-select-lg example" name="devuelto" id="validationDefault04">
             <option disabled value="">Está Devuelto?</option>
             <option value="si">Sí</option>
             <option value="no">No</option>
