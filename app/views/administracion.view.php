@@ -60,89 +60,6 @@
             </div>
         </form>
     </div>
-    <!-- FORMULARIO DE PRESTAMOS -->
-    <div class="container form-prestamo noVer" id="form-prestamo">
-        <form class="row g-3" action="#" method="post">
-            <div class="col-md-6">
-                <label for="validationDefault01" class="form-label">Código Libro</label>
-                <?php
-                try {
-                    $libroRep = new LibrosRepository();
-                    $arrayLibros = $libroRep->findLibrosDisponibles();
-                ?>
-                    <select class="form-select form-select-lg" aria-label=".form-select-lg example" name="codLibro" id="validationCustom01">
-
-                        <?php
-                        foreach ($arrayLibros as $libro) {
-                            $codigo = $libro->getCodigo();
-
-                            echo <<< EOT
-                        <option value="$codigo">$codigo</option>
-                    EOT;
-                        }
-                        ?>
-                    </select>
-            </div>
-        <?php
-                } catch (DataBException $e) {
-                    $mensaje = $e->getMessage();
-                    echo "<div class='alert alert-danger' role='alert'>
-                        $mensaje 
-                        </div>";
-                }
-        ?>
-
-
-        <div class="col-md-6">
-            <label for="validationDefault02" class="form-label">Código Usuario</label>
-            <?php
-            try {
-                $usuarioRepositorio = new UsuariosRepository();
-                $arrayUsuarios = $usuarioRepositorio->findAll();
-            ?>
-                <select class="form-select form-select-lg" aria-label=".form-select-lg   example" name="codUsuario" id="validationDefault02">
-                    <?php
-                    foreach ($arrayUsuarios as $usuarios) {
-                        $codigo = $usuarios->getCodigo();
-
-                        echo <<< EOT
-                                    <option value="$codigo">$codigo</option>
-                                 EOT;
-                    }
-                    ?>
-                </select>
-        </div>
-    <?php
-            } catch (DataBException $e) {
-                $mensaje = $e->getMessage();
-                echo "<div class='alert alert-danger' role='alert'>
-                    $mensaje 
-                    </div>";
-            }
-    ?>
-
-    <div class="col-md-4">
-        <label for="validationDefault02" class="form-label">Fecha Salida</label>
-        <input type="text" class="form-control" id="validationDefault02" name="salida" required>
-    </div>
-
-    <div class="col-md-4">
-        <label for="validationDefault03" class="form-label">Fecha Máxima de Devolución</label>
-        <input type="text" class="form-control" id="validationDefault03" name="fmaxDev" required>
-    </div>
-    <div class="col-md-3">
-        <select class="form-select form-select-lg" aria-label=".form-select-lg example" name="devuelto" id="validationDefault04">
-            <option disabled value="">Está Devuelto?</option>
-            <option value="si">Sí</option>
-            <option value="no">No</option>
-        </select>
-    </div>
-    <div class="col-12">
-        <button class="btn btn-warning" type="submit" id="enviaprestamo" name="enviaprestamo">Envía</button>
-    </div>
-        </form>
-    </div>
-
     <!-- FORMULARIO DE REGISTRO DE LIBROS -->
     <div class="container form-libros noVer" id="form-libros">
         <form class="row g-3" action="#" method="post">
@@ -181,6 +98,71 @@
             </div>
             <div class="col-12">
                 <button class="btn btn-warning" type="submit" id="enviaLibro" name="enviaLibro">Envía</button>
+            </div>
+        </form>
+    </div>
+    <!-- FORMULARIO DE PRESTAMOS -->
+    <!-- NUEVO FORMULARIO DE PRESTAMOS -->
+    <div class="container form-prestamo prestamo noVer">
+        <form class="row g-3" action="#" method="post">
+            <div class="col-md-6">
+                <label for="validationDefault01" class="form-label">Libro</label>
+                <select class="form-select form-select-lg" aria-label=".form-select-lg example" name="codLibro" id="validationCustom01">
+                    <?php
+                    try {
+                        $libroRep = new LibrosRepository();
+                        $arrayLibros = $libroRep->findLibrosDisponibles();
+                        foreach ($arrayLibros as $libro) {
+                            $codigo = $libro->getCodigo();
+
+                            echo <<< EOT
+                                <option value="$codigo">$codigo</option>
+                            EOT;
+                        }
+                    } catch (DataBException $e) {
+                        $mensaje = $e->getMessage();
+                        echo "<div class='alert alert-danger' role='alert'>
+                        $mensaje 
+                        </div>";
+                    }
+                    ?>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="validationDefault02" class="form-label">Usuario</label>
+                <select class="form-select form-select-lg" aria-label=".form-select-lg   example" name="codUsuario" id="validationDefault02">
+                    <?php
+                    try {
+                        $usuarioRepositorio = new UsuariosRepository();
+                        $arrayUsuarios = $usuarioRepositorio->findAll();
+
+                        foreach ($arrayUsuarios as $usuarios) {
+                            $codigo = $usuarios->getCodigo();
+
+                            echo <<< EOT
+                                    <option value="$codigo">$codigo</option>
+                                 EOT;
+                        }
+                    } catch (DataBException $e) {
+                        $mensaje = $e->getMessage();
+                        echo "<div class='alert alert-danger' role='alert'>
+                    $mensaje 
+                    </div>";
+                    }
+                    ?>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label for="validationDefault02" class="form-label">Fecha Salida</label>
+                <input type="text" class="form-control" id="validationDefault02" name="salida" required>
+            </div>
+
+            <div class="col-md-4">
+                <label for="validationDefault03" class="form-label">Fecha Máxima de Devolución</label>
+                <input type="text" class="form-control" id="validationDefault03" name="fmaxDev" required>
+            </div>
+            <div class="col-12">
+                <input class="btn btn-warning" type="submit" id="enviaprestamo" name="enviaprestamo" value="Envía">
             </div>
         </form>
     </div>

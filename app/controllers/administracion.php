@@ -75,10 +75,9 @@ if (isset($_POST['enviaprestamo'])) {
     $codUsuario = $_POST['codUsuario'];
     $salida = htmlspecialchars(trim($_POST['salida']));
     $fMaxDev = htmlspecialchars(trim($_POST['fmaxDev']));
-    $devuelto = $_POST['devuelto'] == "si" ? "true" : "false";
     try {
         $prestamoRep = new PrestamosRepositorio();
-        $newPrestamo = new Prestamos($codLibro, $codUsuario, $salida, $fMaxDev, 'null', $devuelto);
+        $newPrestamo = new Prestamos($codLibro, $codUsuario, $salida, $fMaxDev, "null", "false");
         $prestamoRep->save($newPrestamo);
         $mensaje = "Prestamo correctamente.";
         echo "<div class='alert alert-success' role='alert'>
