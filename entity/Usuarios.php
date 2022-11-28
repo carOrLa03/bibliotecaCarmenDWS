@@ -7,18 +7,16 @@ class Usuarios implements IEntity
     private $DNI;
     private $Domicilio;
     private $Poblacion;
-    private $Provincia;
     private $Fecha_nacimiento;
 
-    public function __construct($nombre, $apellidos, $dni, $domicilio, $poblacion, $provincia,  $fnacimiento)
+    public function __construct($nombre, $apellidos, $dni, $domicilio, $poblacion, $fnacimiento)
     {
-        $this->cod_usuario = 0;
+        $this->Cod_usuario = 0;
         $this->Nombre = $nombre;
         $this->Apellidos = $apellidos;
         $this->DNI = $dni;
         $this->Domicilio = $domicilio;
         $this->Poblacion = $poblacion;
-        $this->Provincia = $provincia;
         $this->Fecha_nacimiento = $fnacimiento;
     }
 
@@ -41,10 +39,6 @@ class Usuarios implements IEntity
     public function setPob($poblacion)
     {
         $this->Poblacion = $poblacion;
-    }
-    public function setProv($provincia)
-    {
-        $this->Provincia = $provincia;
     }
     public function setFNace($fnace)
     {
@@ -74,10 +68,6 @@ class Usuarios implements IEntity
     {
         return $this->Poblacion;
     }
-    public function getProvincia()
-    {
-        return $this->Provincia;
-    }
     public function getFnace()
     {
         return $this->Fecha_nacimiento;
@@ -91,7 +81,6 @@ class Usuarios implements IEntity
             'DNI' => $this->getDni(),
             'Domicilio' => $this->getDomicilio(),
             'Poblacion' => $this->getPoblacion(),
-            'Provincia' => $this->getProvincia(),
             'Fecha_nacimiento' => $this->getFnace()
         ];
     }

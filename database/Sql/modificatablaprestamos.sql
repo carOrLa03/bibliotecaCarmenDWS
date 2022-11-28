@@ -14,5 +14,7 @@ use biblioteca;
 -- ALTER TABLE biblioteca.libros
 -- modify Cod_libro INT AUTO_INCREMENT;
 -- commit;
+
+ALTER TABLE prestamos DROP INDEX FK_pre_cod_Usuario; 
 DESCRIBE prestamos;
 

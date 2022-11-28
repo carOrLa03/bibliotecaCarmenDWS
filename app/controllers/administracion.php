@@ -29,7 +29,6 @@ if (isset($_POST['enviaUusuario'])) {
     $dni = htmlspecialchars(trim($_POST['dni']));
     $domicilio = htmlspecialchars($_POST['domicilio']);
     $poblacion = htmlspecialchars(trim($_POST['poblacion']));
-    $provincia = htmlspecialchars(trim($_POST['provincia']));
     $fecha = htmlspecialchars(trim($_POST['fecha_nac']));
     try {
         if ((!preg_match("/^[a-zA-Z]+/", $nomUsuario) || strlen($nomUsuario) < 5)) {
@@ -40,13 +39,11 @@ if (isset($_POST['enviaUusuario'])) {
             throw new MiExcepcion("El DNI no es correcto.");
         } else if (!preg_match("/^[a-zA-Z]+/", $poblacion)) {
             throw new MiExcepcion("La poblacion no es correcta.");
-        } else if (!preg_match("/^[a-zA-Z]+/", $provincia)) {
-            throw new MiExcepcion("La provincia no es correcta.");
-        } else if (valida_fecha($fecha) != false) {
+        } else if (valida_fecha($fecha) == false) {
             throw new MiExcepcion("La fecha no es correcta.");
         } else {
             $usuarioRep = new UsuariosRepository();
-            $usuario = new Usuarios($nomUsuario, $apellidos, $dni, $domicilio, $poblacion, $provincia, $fecha);
+            $usuario = new Usuarios($nomUsuario, $apellidos, $dni, $domicilio, $poblacion, $fecha);
             $usuarioRep->save($usuario);
             $mensaje = " Usuario guardado correctamente.";
             echo "<div class='alert alert-success' role='alert'>
@@ -97,16 +94,14 @@ if (isset($_POST['enviaprestamo'])) {
 }
 if (isset($_POST['enviaLibro'])) {
     $titulo = htmlspecialchars(trim($_POST['nomLibro']));
-    $editorial = htmlspecialchars(trim($_POST['editorial']));
     $autor = htmlspecialchars(trim($_POST['autor']));
     $genero = htmlspecialchars(trim($_POST['genero']));
     $pais = htmlspecialchars(trim($_POST['pais']));
     $paginas = (int)$_POST['paginas'];
-    $precio = htmlspecialchars(trim($_POST['precio']));
     $anoEdicion = (int)$_POST['ano'];
     try {
         $libroRep = new LibrosRepository();
-        $newLibro = new Libros($titulo, $editorial, $autor, $genero, $pais, $paginas, $precio, $anoEdicion);
+        $newLibro = new Libros($titulo, $autor, $genero, $pais, $paginas, $anoEdicion);
         $libroRep->save($newLibro);
         $mensaje = "Nuevo Libro registrado correctamente.";
         echo "<div class='alert alert-success' role='alert'>

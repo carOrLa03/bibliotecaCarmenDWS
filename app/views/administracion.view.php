@@ -39,11 +39,7 @@
                 <label for="validationDefault03" class="form-label">Población</label>
                 <input type="text" class="form-control" id="validationDefault03" name="poblacion" required>
             </div>
-            <div class="col-md-3">
-                <label for="validationDefault04" class="form-label">Provincia</label>
-                <input type="text" class="form-control" id="validationDefault03" name="provincia" required>
-            </div>
-            <div class="col-md-3">
+            <div class="col-md-6">
                 <label for="validationDefault05" class="form-label">Fecha de Nacimiento</label>
                 <input type="text" class="form-control" id="validationDefault05" name="fecha_nac" required>
             </div>
@@ -63,13 +59,9 @@
     <!-- FORMULARIO DE REGISTRO DE LIBROS -->
     <div class="container form-libros noVer" id="form-libros">
         <form class="row g-3" action="#" method="post">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <label for="validationDefault01" class="form-label">Título</label>
                 <input type="text" class="form-control" id="validationDefault01" name="nomLibro" required>
-            </div>
-            <div class="col-md-6">
-                <label for="validationDefault02" class="form-label">Editorial</label>
-                <input type="text" class="form-control" id="validationDefault02" name="editorial" required>
             </div>
             <div class="col-md-6">
                 <label for="validationDefault02" class="form-label">Autor</label>
@@ -87,10 +79,6 @@
             <div class="col-md-4">
                 <label for="validationDefault04" class="form-label">Páginas</label>
                 <input type="number" class="form-control" id="validationDefault03" name="paginas" required>
-            </div>
-            <div class="col-md-4">
-                <label for="validationDefault05" class="form-label">Precio</label>
-                <input type="text" class="form-control" id="validationDefault05" name="precio" required>
             </div>
             <div class="col-md-4">
                 <label for="validationDefault06" class="form-label">Año de edición</label>
@@ -178,12 +166,12 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
+                        <th>Cod_usuario</th>
                         <th>Nombre</th>
                         <th>Apellidos</th>
                         <th>DNI</th>
                         <th>Domicilio</th>
                         <th>Poblacion</th>
-                        <th>Provincia</th>
                         <th>Fecha de Nacimiento</th>
                     </tr>
                 </thead>
@@ -197,17 +185,16 @@
                         $dni = $usuario->getDni();
                         $domicilio = $usuario->getDomicilio();
                         $poblacion = $usuario->getPoblacion();
-                        $provincia = $usuario->getProvincia();
                         $nace = $usuario->getFnace();
 
                         echo <<< EOT
                             <tr>
+                                <th>$codUsuario</th>
                                 <th>$nombre</th>
                                 <th>$apellidos</th>
                                 <th>$dni</th>
                                 <th>$domicilio</th>
                                 <th>$poblacion</th>
-                                <th>$provincia</th>
                                 <th>$nace</th>
                                 <th><form action="#" method="post">
                                 <input type="submit" name="prestamoUsuario" value="Ver Prestamos" id="verPrestamoUsu" class="btn btn-warning">
