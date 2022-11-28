@@ -27,7 +27,6 @@
         $arrayLibrosDisponibles = $libRepositorio->findLibrosDisponibles();
         foreach ($arrayTodosLibros as $libro) {
           $nomlibro = $libro->getNombre();
-          $editorial = $libro->getEditorial();
           $autor = $libro->getAutor();
           $genero = $libro->getGenero();
           $pag = $libro->getPaginas();
@@ -53,7 +52,6 @@
                     <h5>
                       $nomlibro
                     </h5>
-                    <h6>$editorial</h6>
                     <h6>$autor</h6>
                     <h6>$pag páginas</h6>
                   </div>

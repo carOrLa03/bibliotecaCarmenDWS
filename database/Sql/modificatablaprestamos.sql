@@ -11,10 +11,23 @@ use biblioteca;
 -- ON UPDATE cascade
 -- ON DELETE restrict;
 -- commit;
+
+-- ALTER TABLE biblioteca.usuarios
+-- modify Cod_usuario INT AUTO_INCREMENT;
+-- commit;
 -- ALTER TABLE biblioteca.libros
 -- modify Cod_libro INT AUTO_INCREMENT;
 -- commit;
+-- ALTER TABLE biblioteca.prestamos
+-- modify Num_pedido INT AUTO_INCREMENT;
+-- commit;
 
-ALTER TABLE prestamos DROP INDEX FK_pre_cod_Usuario; 
+-- ALTER TABLE prestamos modify Cod_usuario INT;
+-- ALTER TABLE biblioteca.prestamos DROP FOREIGN KEY FK_pre_Cod_libro; 
+-- ALTER TABLE biblioteca.prestamos DROP FOREIGN KEY FK_pre_cod_Usuario; 
+
+
+-- DELETE FROM prestamos WHERE Num_pedido = 0;
+-- select * from prestamos;
 DESCRIBE prestamos;
 

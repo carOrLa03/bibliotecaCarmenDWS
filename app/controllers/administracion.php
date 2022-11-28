@@ -39,7 +39,7 @@ if (isset($_POST['enviaUusuario'])) {
             throw new MiExcepcion("El DNI no es correcto.");
         } else if (!preg_match("/^[a-zA-Z]+/", $poblacion)) {
             throw new MiExcepcion("La poblacion no es correcta.");
-        } else if (valida_fecha($fecha) == false) {
+        } else if (!valida_fecha($fecha)) {
             throw new MiExcepcion("La fecha no es correcta.");
         } else {
             $usuarioRep = new UsuariosRepository();

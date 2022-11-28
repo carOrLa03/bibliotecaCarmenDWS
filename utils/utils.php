@@ -35,6 +35,7 @@ function valida_fecha($fecha)
     $dia = (int)substr($fecha, 0, 1);
     $mes = (int)substr($fecha, 3, 4);
     $año = (int)substr($fecha, 6, 9);
+
     if (checkdate($dia, $mes, $año)) {
         return true;
     }
