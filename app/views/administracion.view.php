@@ -94,7 +94,6 @@
     <div class="container form-prestamo prestamo noVer">
         <form class="row g-3" action="#" method="post">
             <div class="col-md-6">
-                <label for="validationDefault01" class="form-label">Libro</label>
                 <select class="form-select form-select-lg" aria-label=".form-select-lg example" name="codLibro" id="validationCustom01">
                     <?php
                     try {
@@ -102,9 +101,10 @@
                         $arrayLibros = $libroRep->findLibrosDisponibles();
                         foreach ($arrayLibros as $libro) {
                             $codigo = $libro->getCodigo();
+                            $nonLib = $libro->getNombre();
 
                             echo <<< EOT
-                                <option value="$codigo">$codigo</option>
+                                <option value="$codigo">$codigo -- $nonLib</option>
                             EOT;
                         }
                     } catch (DataBException $e) {
@@ -117,7 +117,6 @@
                 </select>
             </div>
             <div class="col-md-6">
-                <label for="validationDefault02" class="form-label">Usuario</label>
                 <select class="form-select form-select-lg" aria-label=".form-select-lg   example" name="codUsuario" id="validationDefault02">
                     <?php
                     try {
@@ -126,9 +125,10 @@
 
                         foreach ($arrayUsuarios as $usuarios) {
                             $codigo = $usuarios->getCodigo();
+                            $nomUs = $usuarios->getNombre();
 
                             echo <<< EOT
-                                    <option value="$codigo">$codigo</option>
+                                    <option value="$codigo">$codigo -- $nomUs</option>
                                  EOT;
                         }
                     } catch (DataBException $e) {
