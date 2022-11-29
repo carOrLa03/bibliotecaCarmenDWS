@@ -70,8 +70,10 @@ if (isset($_POST['enviaUusuario'])) {
 if (isset($_POST['enviaprestamo'])) {
     $codLibro = $_POST['codLibro'];
     $codUsuario = $_POST['codUsuario'];
-    $salida = htmlspecialchars(trim($_POST['salida']));
-    $fMaxDev = htmlspecialchars(trim($_POST['fmaxDev']));
+    $hoy = new DateTime();
+    $salida = $hoy->format('d/m/Y');
+    $max = date_add($hoy, date_interval_create_from_date_string("1 month"));
+    $fMaxDev = $max->format('d/m/Y');
     try {
         $prestamoRep = new PrestamosRepositorio();
         $newPrestamo = new Prestamos($codLibro, $codUsuario, $salida, $fMaxDev, "null", "false");
@@ -98,7 +100,9 @@ if (isset($_POST['enviaLibro'])) {
     $genero = htmlspecialchars(trim($_POST['genero']));
     $pais = htmlspecialchars(trim($_POST['pais']));
     $paginas = (int)$_POST['paginas'];
+    var_dump($paginas);
     $anoEdicion = (int)$_POST['ano'];
+    var_dump($anoEdicion);
     try {
         $libroRep = new LibrosRepository();
         $newLibro = new Libros($titulo, $autor, $genero, $pais, $paginas, $anoEdicion);

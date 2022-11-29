@@ -16,7 +16,7 @@ class Libros implements IEntity
         $this->autor = $autor;
         $this->genero = $genero;
         $this->pais_autor = $pais;
-        $this->num_paginas  = $paginas;
+        $this->paginas  = $paginas;
         $this->ano_edicion = $ano;
     }
     public function setNombre($nombre)

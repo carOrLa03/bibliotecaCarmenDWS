@@ -140,15 +140,6 @@
                     ?>
                 </select>
             </div>
-            <div class="col-md-4">
-                <label for="validationDefault02" class="form-label">Fecha Salida</label>
-                <input type="text" class="form-control" id="validationDefault02" name="salida" required>
-            </div>
-
-            <div class="col-md-4">
-                <label for="validationDefault03" class="form-label">Fecha Máxima de Devolución</label>
-                <input type="text" class="form-control" id="validationDefault03" name="fmaxDev" required>
-            </div>
             <div class="col-12">
                 <input class="btn btn-warning" type="submit" id="enviaprestamo" name="enviaprestamo" value="Envía">
             </div>
