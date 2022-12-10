@@ -58,7 +58,22 @@ abstract class QueryBuilder
             throw new DataBException("No se ha podido ejecutar la Query solicitada");
         }
     }
-    // funcion para saber los prestamos de cada usuario
+    // funcion para saber el total de los préstamos de un usuario
+    public function totalPrestamosUsuario($codUsuario)
+    {
+        try {
+            //todos los prestamos de un usuario que no hayan sido devueltos todavía
+            $sql = "SELECT 'COUNT (*)'
+                    FROM $this->tabla
+                    WHERE Cod_usuario = '$codUsuario' AND 
+                          Devuelto = 'false'";
+            $pdoStatement = $this->conexion->prepare($sql);
+            $pdoStatement->execute();
+            return $pdoStatement->rowCount();
+        } catch (DataBaseException $e) {
+            throw new DataBaseException("No se ha podido ejecutar la Query solicitada");
+        }
+    }
     public function prestamosUsuarios($codUsuario)
     {
         try {

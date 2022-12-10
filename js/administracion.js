@@ -8,6 +8,17 @@ const fP = document.querySelector(".prestamo");
 const btnNuevolibro = document.getElementById("newlibro");
 const formLibro = document.getElementById("form-libros");
 
+const btnformNumMaxPrestamos = document.getElementById('numMaxPrestamos');
+const formNumPrestamos = document.getElementById('numeroPrestamos');
+btnformNumMaxPrestamos.addEventListener("click", (e)=>{
+  e.preventDefault();
+  console.log('hola');
+  noverTablas();
+  formLibro.classList.add("noVer");
+  fP.classList.add("noVer");
+  formUsuario.classList.add("noVer");
+  formNumPrestamos.classList.remove('noVer');
+})
 // si clicko en nuevo USUARIO aparece, cuando lo envío desaparece
 btnNuevoUsuario.addEventListener("click", (e) => {
   e.preventDefault();
@@ -16,6 +27,7 @@ btnNuevoUsuario.addEventListener("click", (e) => {
   // si se ve el formulario de usuarios, los otros dos no se ven
   formLibro.classList.add("noVer");
   fP.classList.add("noVer");
+  formNumPrestamos.classList.add('noVer');
 });
 
 // si clicko en nuevo PRESTAMO aparece, cuando lo envío desaparece
@@ -25,6 +37,7 @@ btnNuevoPrestamo.addEventListener("click", (e) => {
   // si se ve el formulario de prestamos, los otros dos no se ven
   formUsuario.classList.add("noVer");
   formLibro.classList.add("noVer");
+  formNumPrestamos.classList.add('noVer');
   noverTablas();
 });
 
@@ -35,6 +48,7 @@ btnNuevolibro.addEventListener("click", (e) => {
   // si se ve el formulario de libros, los otros dos no se ven
   formUsuario.classList.add("noVer");
   fP.classList.add("noVer");
+  formNumPrestamos.classList.add('noVer');
   noverTablas();
 });
 
@@ -56,6 +70,7 @@ function nomostrar() {
   formUsuario.classList.add("noVer");
   fP.classList.add("noVer");
   formLibro.classList.add("noVer");
+  formNumPrestamos.classList.add('noVer');
 }
 const sectionMostrarTablas = document.getElementById("mostrarTablas");
 function noverTablas() {

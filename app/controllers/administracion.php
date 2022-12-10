@@ -76,18 +76,46 @@ if (isset($_POST['enviaprestamo'])) {
     $fMaxDev = $max->format('d/m/Y');
     try {
         $prestamoRep = new PrestamosRepositorio();
-        $newPrestamo = new Prestamos($codLibro, $codUsuario, $salida, $fMaxDev, "null", "false");
-        $prestamoRep->save($newPrestamo);
-        $mensaje = "Prestamo correctamente.";
-        echo "<div class='alert alert-success' role='alert'>
+        $totalPrestUsu = $prestamoRep->totalPrestamosUsuario($codUsuario);
+        $numMaxPrestamos = numMaxPrestamos();
+        if($totalPrestUsu < $numMaxPrestamos){
+            $newPrestamo = new Prestamos($codLibro, $codUsuario, $salida, $fMaxDev, "null", "false");
+            $prestamoRep->save($newPrestamo);
+            $mensaje = "Prestamo guardado";
+            echo "<div class='alert alert-success' role='alert'>
              $mensaje 
             </div>";
-    } catch (DataBException $e) {
+        }else{
+            $mensaje = "Número de préstamos excedido. No puede tener más de 5 prestamos activos.";
+            App::get('logger')->add($mensaje);
+            echo "<div class='alert alert-danger' role='alert'>
+             $mensaje 
+            </div>";
+        }
+
+    } catch (DataBaseException $e) {
         $mensaje = $e->getMessage();
         echo "<div class='alert alert-danger' role='alert'>
         $mensaje 
        </div>";
     } catch (AppException $e) {
+        $mensaje = $e->getMessage();
+        echo "<div class='alert alert-danger' role='alert'>
+            $mensaje 
+            </div>";
+    }
+}
+if(isset($_POST['enviaNumPrestamo'])){
+    try{
+    $nuevoNum = $_POST['numMaxPrestamos'];
+    modificaNumMaxPrestamos($nuevoNum);
+        $mensaje = "Número máximo de prestamos modificado a " . $nuevoNum;
+        App::get('logger')->add($mensaje);
+        echo "<div class='alert alert-success' role='alert'>
+            $mensaje 
+            </div>";
+
+    }catch(AppException $e){
         $mensaje = $e->getMessage();
         echo "<div class='alert alert-danger' role='alert'>
             $mensaje 
@@ -100,14 +128,13 @@ if (isset($_POST['enviaLibro'])) {
     $genero = htmlspecialchars(trim($_POST['genero']));
     $pais = htmlspecialchars(trim($_POST['pais']));
     $paginas = (int)$_POST['paginas'];
-    var_dump($paginas);
     $anoEdicion = (int)$_POST['ano'];
-    var_dump($anoEdicion);
     try {
         $libroRep = new LibrosRepository();
         $newLibro = new Libros($titulo, $autor, $genero, $pais, $paginas, $anoEdicion);
         $libroRep->save($newLibro);
         $mensaje = "Nuevo Libro registrado correctamente.";
+        App::get('logger')->add($mensaje);
         echo "<div class='alert alert-success' role='alert'>
          $mensaje 
         </div>";

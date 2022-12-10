@@ -9,7 +9,7 @@
                 <button type="submit" class="btn btn-warning btn-lg" id="mostrarUsuarios" name="mostrarUsuarios" formmethod="post">Mostrar Usuarios</button>
                 <button type="submit" class="btn btn-warning btn-lg" id="mostrarPrestamos" name="mostrarPrestamos">Mostrar Prestamos</button>
                 <button type="submit" class="btn btn-warning btn-lg" id="mostrarMensajes" name="mostrarMensajes">Mensajes de Usuarios</button>
-
+                <button type="submit" class="btn btn-warning btn-lg" id="numMaxPrestamos" name="numMaxPrestamos">Número máximo de Préstamos</button>
             </div>
         </form>
 
@@ -145,6 +145,18 @@
             </div>
         </form>
     </div>
+    <!--FORMULARIO PARA CAMBIAR EL NUMERO MÁXIMO DE PRESTAMOS-->
+    <div class="container form-cambiaNumPrestamo numeroPrestamos noVer" id="numeroPrestamos">
+        <form class="row g-3" action="#" method="post">
+            <div class="col-md-6">
+                <label for="numPrestamos" class="form-label">Nuevo número máximo de Préstamos por usuario</label>
+                <input type="number" class="form-control" id="numPrestamos" name="numMaxPrestamos" min="1" required>
+            </div>
+            <div class="col-12">
+                <input class="btn btn-warning" type="submit" id="enviaNumPrestamo" name="enviaNumPrestamo" value="Cambia">
+            </div>
+        </form>
+    </div>
 </section>
 <section class="mostrarTablas" id="mostrarTablas">
     <?php
@@ -204,7 +216,6 @@
         try {
             $numUsu = $_POST['codUsuario'];
             $prestamosRep = new PrestamosRepositorio();
-            $arrayPrestamos = $prestamosRep->findAll();
             $arrayPrestamos = $prestamosRep->prestamosUsuarios($numUsu);
             if (empty($arrayPrestamos)) {
                 throw new MiExcepcion("No tiene prestamos.");
@@ -322,8 +333,8 @@
                     <input type="text" class="form-control" id="validationDefault02" name="fechaMax" value="<?php echo $fechaMaxDev ?>" disabled>
                 </div>
                 <div class="col-md-4">
-                    <label for="validationDefault03" class="form-label">Fecha Devolución</label>
-                    <input type="text" class="form-control" id="validationDefault03" name="devolucion" required>
+                    <label for="fDev" class="form-label">Fecha Devolución</label>
+                    <input type="text" class="form-control" id="fDev" name="devolucion" required>
                 </div>
                 <div class="col-12">
                     <button class="btn btn-warning" type="submit" id="enviaDevolucion" name="enviaDevolucion">Modifica</button>

@@ -29,7 +29,7 @@ function valida_dni($dni)
     return false;
 }
 
-// funciónes para validar fechas
+// función para validar fechas
 function valida_fecha($fecha)
 {
     $dia = (int)substr($fecha, 0, 1);
@@ -40,4 +40,14 @@ function valida_fecha($fecha)
         return true;
     }
     return false;
+}
+//funcion para cambiar el número máximo de préstamos
+
+function modificaNumMaxPrestamos($numMaxPrestamos){
+    $arrayNum = array('maxprestamos'=>$numMaxPrestamos);
+    file_put_contents('database/numMaxPrestamos.json', json_encode($arrayNum));
+}
+function numMaxPrestamos(){
+    $numMPrestamos = json_decode('database/numMaxPrestamos.json', true);
+    return $numMPrestamos->{'maxprestamos'};
 }
