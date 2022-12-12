@@ -45,28 +45,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $colnewRepository->save($colaborador);
             } catch (DataBException $e) {
                 $mensaje = $e->getMessage();
+                App::get('logger')->add($mensaje);
                 echo "<div class='alert alert-danger' role='alert'>
                 $mensaje 
                 </div>";
             }
         } catch (FileException $e) {
             $mensaje = $e->getMessage();
+            App::get('logger')->add($mensaje);
             echo "<div class='alert alert-danger' role='alert'>
             $mensaje 
            </div>";
         } catch (AppException $e) {
             $mensaje = $e->getMessage();
+            App::get('logger')->add($mensaje);
             echo "<div class='alert alert-danger' role='alert'>
                 $mensaje 
                 </div>";
         } catch (DataBException $e) {
             $mensaje = $e->getMessage();
+            App::get('logger')->add($mensaje);
             echo "<div class='alert alert-danger' role='alert'>
                 $mensaje 
                 </div>";
         }
     }
     if ($error != "ok") {
+        App::get('logger')->add($error);
         echo "<div class='alert alert-danger' role='alert'>
          $error 
         </div>";

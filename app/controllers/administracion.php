@@ -52,16 +52,19 @@ if (isset($_POST['enviaUusuario'])) {
         }
     } catch (DataBException $e) {
         $mensaje = $e->getMessage();
+        App::get('logger')->add($mensaje);
         echo "<div class='alert alert-danger' role='alert'>
             $mensaje 
            </div>";
     } catch (AppException $e) {
         $mensaje = $e->getMessage();
+        App::get('logger')->add($mensaje);
         echo "<div class='alert alert-danger' role='alert'>
                 $mensaje 
                 </div>";
     } catch (MiExcepcion $e) {
         $mensaje  = $e->getMessage();
+        App::get('logger')->add($mensaje);
         echo "<div class='alert alert-danger' role='alert'>
             $mensaje 
            </div>";
@@ -95,11 +98,13 @@ if (isset($_POST['enviaprestamo'])) {
 
     } catch (DataBaseException $e) {
         $mensaje = $e->getMessage();
+        App::get('logger')->add($mensaje);
         echo "<div class='alert alert-danger' role='alert'>
         $mensaje 
        </div>";
     } catch (AppException $e) {
         $mensaje = $e->getMessage();
+        App::get('logger')->add($mensaje);
         echo "<div class='alert alert-danger' role='alert'>
             $mensaje 
             </div>";
@@ -117,6 +122,7 @@ if(isset($_POST['enviaNumPrestamo'])){
 
     }catch(AppException $e){
         $mensaje = $e->getMessage();
+        App::get('logger')->add($mensaje);
         echo "<div class='alert alert-danger' role='alert'>
             $mensaje 
             </div>";

@@ -106,11 +106,13 @@ require_once __DIR__ . "/partials/menu.part.php";
                 }
             } catch (DataBException $e) {
                 $mensaje = $e->getMessage();
+            App::get('logger')->add($mensaje);
                 echo "<div class='alert alert-danger' role='alert'>
             $mensaje 
            </div>";
             } catch (MiExcepcion $e) {
                 $mensaje = $e->getMessage();
+            App::get('logger')->add($mensaje);
                 echo "<div class='alert alert-danger' role='alert'>
                 $mensaje 
                </div>";

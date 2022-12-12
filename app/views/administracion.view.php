@@ -109,6 +109,7 @@
                         }
                     } catch (DataBException $e) {
                         $mensaje = $e->getMessage();
+                        App::get('logger')->add($mensaje);
                         echo "<div class='alert alert-danger' role='alert'>
                         $mensaje 
                         </div>";
@@ -133,6 +134,7 @@
                         }
                     } catch (DataBException $e) {
                         $mensaje = $e->getMessage();
+                        App::get('logger')->add($mensaje);
                         echo "<div class='alert alert-danger' role='alert'>
                     $mensaje 
                     </div>";
@@ -259,6 +261,7 @@
         <?php
         } catch (MiExcepcion $e) {
             $mensaje = $e->getMessage();
+            App::get('logger')->add($mensaje);
             echo "<div class='alert alert-danger' role='alert'>
                     $mensaje 
                    </div>";

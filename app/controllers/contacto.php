@@ -33,6 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mensajeNuevo->save($mensaje);
     }
     if ($error != "ok") {
+        App::get('logger')->add($error);
         echo "<div class='alert alert-danger' role='alert'>
          $error 
         </div>";
