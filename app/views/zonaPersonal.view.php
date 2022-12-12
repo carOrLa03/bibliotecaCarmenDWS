@@ -2,9 +2,9 @@
 
 use biblioteca\App\exceptions\DataBaseException;
 use biblioteca\App\exceptions\MiExcepcion;
-use bibliotecaCarmenDWS\App\repository\LibrosRepository;
-use bibliotecaCarmenDWS\App\repository\PrestamosRepositorio;
-use bibliotecaCarmenDWS\App\repository\UsuariosRepositorio;
+use biblioteca\App\repository\LibrosRepository;
+use biblioteca\App\repository\PrestamosRepositorio;
+use biblioteca\App\repository\UsuariosRepositorio;
 use biblioteca\Core\App;
 
 require_once __DIR__ . "/partials/menu.part.php";

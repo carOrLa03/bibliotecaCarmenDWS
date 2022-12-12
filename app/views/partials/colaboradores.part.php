@@ -1,6 +1,6 @@
 <?php
 
-use bibliotecaCarmenDWS\App\repository\ColaboradorRepositorio;
+use biblioteca\App\repository\ColaboradorRepositorio;
 use biblioteca\App\Utils\Utils;
 
 $consulta = new ColaboradorRepositorio();

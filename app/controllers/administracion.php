@@ -6,9 +6,9 @@ use biblioteca\App\entity\Usuarios;
 use biblioteca\App\exceptions\AppException;
 use biblioteca\App\exceptions\DataBaseException;
 use biblioteca\App\exceptions\MiExcepcion;
-use bibliotecaCarmenDWS\App\repository\LibrosRepository;
-use bibliotecaCarmenDWS\App\repository\PrestamosRepositorio;
-use bibliotecaCarmenDWS\App\repository\UsuariosRepositorio;
+use biblioteca\App\repository\LibrosRepository;
+use biblioteca\App\repository\PrestamosRepositorio;
+use biblioteca\App\repository\UsuariosRepositorio;
 use biblioteca\App\Utils\Utils;
 use biblioteca\Core\App;
 
