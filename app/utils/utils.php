@@ -49,7 +49,7 @@ class Utils{
         file_put_contents('Core/Database/numMaxPrestamos.json', json_encode($arrayNum));
     }
     static function numMaxPrestamos(){
-        $numMPrestamos = json_decode('Core/Database/numMaxPrestamos.json', true);
+        $numMPrestamos = json_decode(file_get_contents('Core/Database/numMaxPrestamos.json'));
         return $numMPrestamos->{'maxprestamos'};
     }
 }
