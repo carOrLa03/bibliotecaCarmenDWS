@@ -24,3 +24,6 @@
 [2022-12-12T22:26:01.584729+01:00] name.INFO: Número máximo de prestamos modificado a 4 [] []
 [2022-12-12T22:26:27.458345+01:00] name.INFO: Número máximo de prestamos modificado a 4 [] []
 [2022-12-12T22:26:45.667317+01:00] name.INFO: Número máximo de prestamos modificado a 5 [] []
+[2022-12-12T23:41:51.201496+01:00] name.INFO: No tienes prestamos. [] []
+[2022-12-12T23:42:08.004258+01:00] name.INFO: Número máximo de prestamos modificado a 4 [] []
+[2022-12-12T23:42:22.676642+01:00] name.INFO: Número de préstamos excedido. No puede tener más de 5 prestamos activos. [] []
