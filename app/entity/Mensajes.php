@@ -1,5 +1,7 @@
 <?php
-namespace bilbiotecaCarmenDWS\app\entity;
+namespace biblioteca\App\entity;
+use biblioteca\Core\Database\IEntity;
+
 class Mensajes implements IEntity
 {
     private $nombre;

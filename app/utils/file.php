@@ -1,11 +1,16 @@
 <?php
-namespace bibliotecaCarmenDWS\app\utils;
+namespace biblioteca\App\Utils;
+use biblioteca\App\exceptions\FileException;
 // clase para subir imagenes al servidor
-require_once __DIR__ . "../../exceptions/FileException.php";
+
+
 class File
 {
     private $file;
 
+    /**
+     * @throws FileException
+     */
     public function __construct($nombre_img)
     {
         $tipo = $_FILES[$nombre_img]['type'];
@@ -16,6 +21,9 @@ class File
         $this->file = $_FILES[$nombre_img];
     }
 
+    /**
+     * @throws FileException
+     */
     public function saveUploadFile($rutaDestino)
     {
         $rutaCompleta = $rutaDestino . $this->file['name'];
@@ -35,4 +43,5 @@ class File
     {
         return $this->file['name'];
     }
+
 }

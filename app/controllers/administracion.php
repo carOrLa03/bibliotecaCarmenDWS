@@ -1,25 +1,17 @@
 <?php
 // excepciones
-require_once __DIR__ . "/../../exceptions/AppException.php";
-require_once __DIR__ . "/../../exceptions/DataBaseException.php";
-require_once __DIR__ . "/../../exceptions/FileException.php";
-require_once __DIR__ . "/../../exceptions/MiExcepcion.php";
-require_once __DIR__ . "/../../database/lentity.php";
-require_once __DIR__ . "/../../entity/Colaboradores.php";
-require_once __DIR__ . "/../../entity/Usuarios.php";
-require_once __DIR__ . "/../../entity/Libros.php";
-require_once __DIR__ . "/../../entity/Prestamos.php";
-require_once __DIR__ . "/../../entity/Mensajes.php";
-require_once __DIR__ . "/../../utils/file.php";
-require_once __DIR__ . "/../../utils/utils.php";
+use biblioteca\App\entity\Libros;
+use biblioteca\App\entity\Prestamos;
+use biblioteca\App\entity\Usuarios;
+use biblioteca\App\exceptions\AppException;
+use biblioteca\App\exceptions\DataBaseException;
+use biblioteca\App\exceptions\MiExcepcion;
+use biblioteca\App\repository\LibrosRepository;
+use biblioteca\App\repository\PrestamosRepositorio;
+use biblioteca\App\repository\UsuariosRepositorio;
+use biblioteca\App\Utils\Utils;
+use biblioteca\Core\App;
 
-// mostrar los colaboradores
-require_once __DIR__ . "/../../database/queryBuilder.php";
-require_once __DIR__ . "/../../repository/ColaboradorRepositorio.php";
-require_once __DIR__ . "/../../repository/LibrosRepository.php";
-require_once __DIR__ . "/../../repository/PrestamosRepositorio.php";
-require_once __DIR__ . "/../../repository/UsuariosRepositorio.php";
-require_once __DIR__ . "/../../repository/MensajesRepository.php";
 require_once __DIR__ . "/../../core/bootstrap.php";
 require_once __DIR__ . "/../views/partials/menu.part.php";
 
@@ -35,14 +27,14 @@ if (isset($_POST['enviaUusuario'])) {
             throw new MiExcepcion("El nombre no es correcto.");
         } else if (!preg_match("/^[a-zA-Z]+/", $apellidos)) {
             throw new MiExcepcion("Los apellidos no son correctos.");
-        } else if (!valida_dni($dni)) {
+        } else if (!Utils::valida_dni($dni)) {
             throw new MiExcepcion("El DNI no es correcto.");
         } else if (!preg_match("/^[a-zA-Z]+/", $poblacion)) {
             throw new MiExcepcion("La poblacion no es correcta.");
-        } else if (!valida_fecha($fecha)) {
+        } else if (!Utils::valida_fecha($fecha)) {
             throw new MiExcepcion("La fecha no es correcta.");
         } else {
-            $usuarioRep = new UsuariosRepository();
+            $usuarioRep = new UsuariosRepositorio();
             $usuario = new Usuarios($nomUsuario, $apellidos, $dni, $domicilio, $poblacion, $fecha);
             $usuarioRep->save($usuario);
             $mensaje = " Usuario guardado correctamente.";
@@ -50,21 +42,15 @@ if (isset($_POST['enviaUusuario'])) {
              $mensaje 
             </div>";
         }
-    } catch (DataBException $e) {
+    } catch (DataBaseException|MiExcepcion $e) {
         $mensaje = $e->getMessage();
-        App::get('logger')->add($mensaje);
-        echo "<div class='alert alert-danger' role='alert'>
-            $mensaje 
-           </div>";
-    } catch (AppException $e) {
-        $mensaje = $e->getMessage();
-        App::get('logger')->add($mensaje);
-        echo "<div class='alert alert-danger' role='alert'>
-                $mensaje 
-                </div>";
-    } catch (MiExcepcion $e) {
-        $mensaje  = $e->getMessage();
-        App::get('logger')->add($mensaje);
+        try {
+            App::get('logger')->add($mensaje);
+        } catch (AppException $e) {
+            $mensaje = $e->getMessage();
+            echo "<div class='alert alert-danger' role='alert'>
+            $mensaje <div>";
+        }
         echo "<div class='alert alert-danger' role='alert'>
             $mensaje 
            </div>";
@@ -80,7 +66,7 @@ if (isset($_POST['enviaprestamo'])) {
     try {
         $prestamoRep = new PrestamosRepositorio();
         $totalPrestUsu = $prestamoRep->totalPrestamosUsuario($codUsuario);
-        $numMaxPrestamos = numMaxPrestamos();
+        $numMaxPrestamos = Utils::numMaxPrestamos();
         if($totalPrestUsu < $numMaxPrestamos){
             $newPrestamo = new Prestamos($codLibro, $codUsuario, $salida, $fMaxDev, "null", "false");
             $prestamoRep->save($newPrestamo);
@@ -98,13 +84,25 @@ if (isset($_POST['enviaprestamo'])) {
 
     } catch (DataBaseException $e) {
         $mensaje = $e->getMessage();
-        App::get('logger')->add($mensaje);
+        try {
+            App::get('logger')->add($mensaje);
+        } catch (AppException $e) {
+            $mensaje = $e->getMessage();
+            echo "<div class='alert alert-danger' role='alert'>
+            $mensaje <div>";
+        }
         echo "<div class='alert alert-danger' role='alert'>
         $mensaje 
        </div>";
     } catch (AppException $e) {
         $mensaje = $e->getMessage();
-        App::get('logger')->add($mensaje);
+        try {
+            App::get('logger')->add($mensaje);
+        } catch (AppException $e) {
+            $mensaje = $e->getMessage();
+            echo "<div class='alert alert-danger' role='alert'>
+            $mensaje <div>";
+        }
         echo "<div class='alert alert-danger' role='alert'>
             $mensaje 
             </div>";
@@ -113,7 +111,7 @@ if (isset($_POST['enviaprestamo'])) {
 if(isset($_POST['enviaNumPrestamo'])){
     try{
     $nuevoNum = $_POST['numMaxPrestamos'];
-    modificaNumMaxPrestamos($nuevoNum);
+    Utils::modificaNumMaxPrestamos($nuevoNum);
         $mensaje = "Número máximo de prestamos modificado a " . $nuevoNum;
         App::get('logger')->add($mensaje);
         echo "<div class='alert alert-success' role='alert'>
@@ -122,7 +120,13 @@ if(isset($_POST['enviaNumPrestamo'])){
 
     }catch(AppException $e){
         $mensaje = $e->getMessage();
-        App::get('logger')->add($mensaje);
+        try {
+            App::get('logger')->add($mensaje);
+        } catch (AppException $e) {
+            $mensaje = $e->getMessage();
+            echo "<div class='alert alert-danger' role='alert'>
+            $mensaje <div>";
+        }
         echo "<div class='alert alert-danger' role='alert'>
             $mensaje 
             </div>";
@@ -144,7 +148,7 @@ if (isset($_POST['enviaLibro'])) {
         echo "<div class='alert alert-success' role='alert'>
          $mensaje 
         </div>";
-    } catch (DataBException $e) {
+    } catch (DataBaseException $e) {
         $mensaje = $e->getMessage();
         echo "<div class='alert alert-danger' role='alert'>
         $mensaje 

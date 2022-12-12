@@ -1,5 +1,7 @@
 <?php
-namespace  bibliotecaCarmenDWS\core;
+namespace  biblioteca\Core;
+use Exception;
+
 class Router
 {
     private $routes;
@@ -9,13 +11,16 @@ class Router
         $this->routes = $routes;
     }
 
-    public static function load($ruta)
+    public static function load($ruta): Router
     {
         $router = new Router($ruta);
         require $ruta;
         return $router;
     }
 
+    /**
+     * @throws Exception
+     */
     public function direct($uri)
     {
         if (array_key_exists($uri, $this->routes)) {

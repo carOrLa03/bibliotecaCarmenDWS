@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-md-6 ">
         <div class="img-box">
-          <img src="../images/iconoslibros/pngegg(28).png" alt="pila de libros">
+          <img src="../../images/iconoslibros/pngegg(28).png" alt="pila de libros">
         </div>
       </div>
       <div class="col-md-6">
@@ -15,7 +15,7 @@
               Colaboradores
             </h2>
           </div>
-          <p>Se uno de nuestos colaboradores</p>
+          <p>Se uno de nuestros colaboradores</p>
           <form action="" method="post" enctype="multipart/form-data">
             <div class="mb-3">
               <label for="exampleFormControlInput1" class="form-label">Nombre</label>

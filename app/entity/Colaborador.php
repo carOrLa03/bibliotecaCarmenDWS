@@ -1,11 +1,13 @@
 <?php
-namespace bilbiotecaCarmenDWS\app\entity;
+namespace biblioteca\App\entity;
+use biblioteca\Core\Database\IEntity;
+
 class Colaborador implements IEntity
 {
     private $nombre;
     private $descripcion;
     private $archivo;
-    public const RUTA_LOGO = "./images/Colaboradores/";
+    const RUTA_LOGO = "./images/Colaboradores/";
 
     public function __construct($nom, $desc, $archivo)
     {
