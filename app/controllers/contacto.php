@@ -1,15 +1,10 @@
 <?php
+
+use biblioteca\App\entity\Mensajes;
+use bibliotecaCarmenDWS\App\repository\MensajesRepository;
+use biblioteca\Core\App;
+
 require_once __DIR__ . "/../views/partials/menu.part.php";
-
-require_once __DIR__ . "/../../database/lentity.php";
-require_once __DIR__ . "/../../entity/Colaboradores.php";
-require_once __DIR__ . "/../../entity/Mensajes.php";
-require_once __DIR__ . "/../../utils/utils.php";
-
-// mostrar los colaboradores
-require_once __DIR__ . "/../../database/queryBuilder.php";
-require_once __DIR__ . "/../../repository/ColaboradorRepositorio.php";
-require_once __DIR__ . "/../../repository/MensajesRepository.php";
 require_once __DIR__ . "/../../core/bootstrap.php";
 
 $nombre = "";
@@ -27,16 +22,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else if (strlen($textarea) < 10) {
         $error = "El comentario no debe estar vacío";
     } else {
-        $error = 'ok';
-        $mensajeNuevo = new MensajesRepositorio();
-        $mensaje = new Mensajes($nombre, $mail, $textarea);
-        $mensajeNuevo->save($mensaje);
+        try {
+            $error = 'ok';
+            $mensajeNuevo = new MensajesRepository();
+            $mensaje = new Mensajes($nombre, $mail, $textarea);
+            $mensajeNuevo->save($mensaje);
+        } catch (\biblioteca\App\exceptions\DataBaseException $e) {
+        }
     }
     if ($error != "ok") {
-        App::get('logger')->add($error);
-        echo "<div class='alert alert-danger' role='alert'>
-         $error 
-        </div>";
+        try {
+            App::get('logger')->add($error);
+            echo "<div class='alert alert-danger' role='alert'>
+            $error 
+            </div>";
+        } catch (\biblioteca\App\exceptions\AppException $e) {
+        }
     } else {
         $mensaje = " Tus datos han sido enviados correctamente.";
         echo "<div class='alert alert-success' role='alert'>

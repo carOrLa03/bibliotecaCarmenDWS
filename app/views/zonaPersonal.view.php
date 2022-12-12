@@ -1,4 +1,12 @@
 <?php
+
+use biblioteca\App\exceptions\DataBaseException;
+use biblioteca\App\exceptions\MiExcepcion;
+use bibliotecaCarmenDWS\App\repository\LibrosRepository;
+use bibliotecaCarmenDWS\App\repository\PrestamosRepositorio;
+use bibliotecaCarmenDWS\App\repository\UsuariosRepositorio;
+use biblioteca\Core\App;
+
 require_once __DIR__ . "/partials/menu.part.php";
 ?>
 <section class="zonaPersonal">
@@ -7,12 +15,12 @@ require_once __DIR__ . "/partials/menu.part.php";
             <h1 class="titlezona">Zona Personal</h1>
         </div>
         <div class="heading_container heading_center">
-            <label for="" class="form-label">Haz click en el desplegable y buscate</label>
+            <label for="" class="form-label">Haz clic en el desplegable y buscate</label>
 
             <?php
             // MOSTRAR TODOS LOS USUARIOS REGISTRADOS
             try {
-                $usuarioRepositorio = new UsuariosRepository();
+                $usuarioRepositorio = new UsuariosRepositorio();
                 $arrayUsuarios = $usuarioRepositorio->findAll();
                 $nombre = "";
             ?>
@@ -77,6 +85,7 @@ require_once __DIR__ . "/partials/menu.part.php";
                             $feMaxDev = $prestamo->getFMaxDev();
                             $feDevolucion = $prestamo->getFDevolucion();
                             $devuelto = $prestamo->getDevuelto();
+                            /** @var string $nomLibro */
                             $nomLibro;
                             foreach ($arraylibros as $libro) {
                                 $codLibro = $libro->getCodigo();
@@ -104,7 +113,7 @@ require_once __DIR__ . "/partials/menu.part.php";
             </div>
     <?php
                 }
-            } catch (DataBException $e) {
+            } catch (DataBaseException $e) {
                 $mensaje = $e->getMessage();
             App::get('logger')->add($mensaje);
                 echo "<div class='alert alert-danger' role='alert'>

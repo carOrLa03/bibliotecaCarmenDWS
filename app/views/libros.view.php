@@ -8,6 +8,7 @@
   </div>
   <div class="container">
     <?php
+    /** @var mixed $libRepositorio */
     $arrayGenero = $libRepositorio->rellenaSelect('genero');
     ?>
     <ul class="filters_menu">

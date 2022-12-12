@@ -1,5 +1,6 @@
 <?php
 namespace biblioteca\Core;
+use biblioteca\App\exceptions\AppException;
 use biblioteca\Core\Database\Conexion;
 // clase donde guardaremos los diferentes objetos en un array contenedor
 class App
@@ -13,6 +14,10 @@ class App
     }
 
     // nos devuelve el elemento solicitado al contenedor de objetos mediante la clave
+
+    /**
+     * @throws AppException
+     */
     public static function get($clave)
     {
         if (!array_key_exists($clave, static::$contenedor)) {

@@ -1,13 +1,11 @@
 <?php
-require_once __DIR__ . "/../vendor/autoload.php";
-use bibliotecaCarmenDWS\Database\Conexion;
-use bibliotecaCarmenDWS\Core\App;
-use bibliotecaCarmenDWS\Core\Request;
-use bibliotecaCarmenDWS\Core\Router;
-use bibliotecaCarmenDWs\App\Utils\MyLog;
-//require_once __DIR__ . "/../utils/MyLog.php";
+use biblioteca\App\Utils\MyLog;
 
-$config = require_once __DIR__ . "/../app/config.php";
+require_once __DIR__ . "/../vendor/autoload.php";
+use biblioteca\Core\App;
+
+
+$config = require_once __DIR__ . "/../App/config.php";
 App::bind('config', $config);
 $conexion = App::getConexion();
 

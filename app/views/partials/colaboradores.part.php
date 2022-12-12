@@ -1,12 +1,14 @@
 <?php
 
+use bibliotecaCarmenDWS\App\repository\ColaboradorRepositorio;
+use biblioteca\App\Utils\Utils;
+
 $consulta = new ColaboradorRepositorio();
 $colaboradores = $consulta->findAll();
-//var_dump($colaboradores);
 
-$colaboradores = mezclar($colaboradores);
+$colaboradores = Utils::mezclar($colaboradores);
 // bucle para recorrer un array de colaboradores y muestra su imagen asociada
 foreach ($colaboradores as $colaborador) {
     $ruta = $colaborador->getUrlImagen();
-    echo "<img src='$ruta' alt='' class='img_colaboradores' ></img>";
+    echo "<img src='$ruta' alt='' class='img_colaboradores' >";
 }

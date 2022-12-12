@@ -97,8 +97,6 @@ require_once __DIR__ . "/partials/menu.part.php";
 
 </section>
 <!-- end slider section -->
-</div>
-
 <!-- offer section -->
 
 <section class="offer_section layout_padding-bottom">
@@ -136,7 +134,7 @@ require_once __DIR__ . "/partials/menu.part.php";
                 <span>15%</span> Off
               </h6>
               <a href="">
-                Suscribete
+                Subscribete
               </a>
             </div>
           </div>
@@ -173,7 +171,7 @@ require_once __DIR__ . "/partials/menu.part.php";
               </p>
             </div>
             <div class="img-box">
-              <img src="/images/chicaleyendo.jpg" alt="" class="box-img cliente_leyendo">
+              <img src="../../images/chicaLeyendo.jpg" alt="chica" class="box-img cliente_leyendo">
             </div>
           </div>
         </div>

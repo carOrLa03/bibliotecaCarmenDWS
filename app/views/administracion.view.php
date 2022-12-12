@@ -96,6 +96,16 @@
             <div class="col-md-6">
                 <select class="form-select form-select-lg" aria-label=".form-select-lg example" name="codLibro" id="validationCustom01">
                     <?php
+
+                    use biblioteca\App\exceptions\AppException;
+                    use biblioteca\App\exceptions\DataBaseException;
+                    use biblioteca\App\exceptions\MiExcepcion;
+                    use bibliotecaCarmenDWS\App\repository\LibrosRepository;
+                    use bibliotecaCarmenDWS\App\repository\MensajesRepository;
+                    use bibliotecaCarmenDWS\App\repository\PrestamosRepositorio;
+                    use bibliotecaCarmenDWS\App\repository\UsuariosRepositorio;
+                    use biblioteca\Core\App;
+
                     try {
                         $libroRep = new LibrosRepository();
                         $arrayLibros = $libroRep->findLibrosDisponibles();
@@ -107,12 +117,15 @@
                                 <option value="$codigo">$codigo -- $nonLib</option>
                             EOT;
                         }
-                    } catch (DataBException $e) {
-                        $mensaje = $e->getMessage();
-                        App::get('logger')->add($mensaje);
-                        echo "<div class='alert alert-danger' role='alert'>
-                        $mensaje 
-                        </div>";
+                    } catch (DataBaseException $e) {
+                        try {
+                            $mensaje = $e->getMessage();
+                            App::get('logger')->add($mensaje);
+                            echo "<div class='alert alert-danger' role='alert'>
+                            $mensaje 
+                            </div>";
+                        } catch (AppException $e) {
+                        }
                     }
                     ?>
                 </select>
@@ -121,7 +134,7 @@
                 <select class="form-select form-select-lg" aria-label=".form-select-lg   example" name="codUsuario" id="validationDefault02">
                     <?php
                     try {
-                        $usuarioRepositorio = new UsuariosRepository();
+                        $usuarioRepositorio = new UsuariosRepositorio();
                         $arrayUsuarios = $usuarioRepositorio->findAll();
 
                         foreach ($arrayUsuarios as $usuarios) {
@@ -132,12 +145,19 @@
                                     <option value="$codigo">$codigo -- $nomUs</option>
                                  EOT;
                         }
-                    } catch (DataBException $e) {
-                        $mensaje = $e->getMessage();
-                        App::get('logger')->add($mensaje);
-                        echo "<div class='alert alert-danger' role='alert'>
-                    $mensaje 
-                    </div>";
+                    } catch (DataBaseException $e) {
+                        try {
+                            $mensaje = $e->getMessage();
+                            App::get('logger')->add($mensaje);
+                            echo "<div class='alert alert-danger' role='alert'>
+                            $mensaje 
+                            </div>";
+                        } catch (AppException $e) {
+                            $mensaje = $e->getMessage();
+                            echo "<div class='alert alert-danger' role='alert'>
+                            $mensaje 
+                            </div>";
+                        }
                     }
                     ?>
                 </select>
@@ -163,9 +183,9 @@
 <section class="mostrarTablas" id="mostrarTablas">
     <?php
     if (isset($_POST['mostrarUsuarios'])) {
-        $usuarioRepositorio = new UsuariosRepository();
+        $usuarioRepositorio = new UsuariosRepositorio();
         $arrayUsuarios = $usuarioRepositorio->findAll();
-    ?>
+        ?>
         <div class="container heading_container heading_center caja-usuarios" id="caja-usuarios">
             <h2>Usuarios</h2>
             <table class="table table-striped">
@@ -261,7 +281,10 @@
         <?php
         } catch (MiExcepcion $e) {
             $mensaje = $e->getMessage();
-            App::get('logger')->add($mensaje);
+            try {
+                App::get('logger')->add($mensaje);
+            } catch (\biblioteca\App\exceptions\AppException $e) {
+            }
             echo "<div class='alert alert-danger' role='alert'>
                     $mensaje 
                    </div>";
@@ -319,7 +342,7 @@
         </div>
     <?php
     }
-    // si el administrador clicka en modificarDevolución
+    // si el administrador clic en modificarDevolución
     if (isset($_POST['modificaDevolucion'])) {
         $fechaMaxDev = $_POST['fechaMax'];
         $numP = $_POST['numPedido'];
@@ -358,7 +381,7 @@
     }
 
     if (isset($_POST['mostrarMensajes'])) {
-        $mensajesRep = new MensajesRepositorio();
+        $mensajesRep = new MensajesRepository();
         $arrayMensajes = $mensajesRep->findAll();
 
     ?>

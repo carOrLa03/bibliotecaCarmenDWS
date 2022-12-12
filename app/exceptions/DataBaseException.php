@@ -1,6 +1,8 @@
 <?php
-namespace bibliotecaCarmenDWS\app\exceptions;
-class DataBException extends Exception
+namespace biblioteca\App\exceptions;
+use Exception;
+
+class DataBaseException extends Exception
 {
     public function __construct($message)
     {

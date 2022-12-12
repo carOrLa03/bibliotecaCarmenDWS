@@ -1,8 +1,16 @@
 <?php
-namespace bibliotecaCarmenDWS\Core\Database;
+namespace biblioteca\Core\Database;
+use biblioteca\App\exceptions\AppException;
+use biblioteca\Core\App;
+use PDO;
+use PDOException;
+
 class Conexion
 {
-    public static function make()
+    /**
+     * @throws AppException
+     */
+    public static function make(): PDO
     { //funcion estática!!
         try {
             $config  = App::get('config')['database'];

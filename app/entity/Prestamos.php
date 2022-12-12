@@ -1,5 +1,7 @@
 <?php
-namespace bilbiotecaCarmenDWS\app\entity;
+namespace biblioteca\App\entity;
+use biblioteca\Core\Database\IEntity;
+
 class Prestamos implements IEntity
 {
     private $Num_pedido;
@@ -9,6 +11,7 @@ class Prestamos implements IEntity
     private $Fecha_maxima_dev;
     private $Fecha_devolucion;
     private $Devuelto;
+    private $fecha_devolucion;
 
     public function __construct($libro, $usuario, $salida, $max_dev, $f_devolucion, $devuelto)
     {

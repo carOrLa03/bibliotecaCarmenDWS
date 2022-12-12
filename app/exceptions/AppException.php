@@ -1,5 +1,7 @@
 <?php
-namespace bibliotecaCarmenDWS\app\exceptions;
+namespace biblioteca\App\exceptions;
+
+use Exception;
 
 class AppException extends Exception
 {

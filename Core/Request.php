@@ -1,8 +1,8 @@
 <?php
-namespace bibliotecaCarmenDWS\Core;
+namespace biblioteca\Core;
 class Request
 {
-    public static function uri()
+    public static function uri(): string
     {
         // 'parse_utl()': analiza una URL y devuelve un array asociativo 
         // que contiene aquellos componentes presentes en la URL

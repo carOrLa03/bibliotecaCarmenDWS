@@ -1,17 +1,18 @@
 <?php
 // CONEXION A LA BBD BIBLIOTECA PARA INSERTAR EN LA BBDD  A LOS COLABORADORES
 // excepciones
-require_once __DIR__ . "/../../exceptions/AppException.php";
-require_once __DIR__ . "/../../exceptions/DataBaseException.php";
-require_once __DIR__ . "/../../exceptions/FileException.php";
-require_once __DIR__ . "/../../database/lentity.php";
-require_once __DIR__ . "/../../entity/Colaboradores.php";
-require_once __DIR__ . "/../../utils/file.php";
-require_once __DIR__ . "/../../utils/utils.php";
+use biblioteca\App\entity\Colaborador;
+use biblioteca\App\exceptions\AppException;
+use biblioteca\App\exceptions\DataBaseException;
+use biblioteca\App\exceptions\FileException;
+use bibliotecaCarmenDWS\App\repository\ColaboradorRepositorio;
+use biblioteca\App\Utils\File;
+use biblioteca\Core\App;
+
+//require_once __DIR__ . "/../../Utils/Utils.php";
 
 // mostrar los colaboradores
-require_once __DIR__ . "/../../database/queryBuilder.php";
-require_once __DIR__ . "/../../repository/ColaboradorRepositorio.php";
+//require_once __DIR__ . "/../../database/QueryBuilder.php";
 require_once __DIR__ . "/../../core/bootstrap.php";
 
 require_once __DIR__ . "/../views/partials/menu.part.php";
@@ -30,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = "Debes introducir un archivo de imagen";
     } else {
         try {
-            // subimos la imagen a la carpeta colaboradores
+            // subimos la imagen a la carpeta colaboradora
             $file  = new File("img_colaborador");
             $file->saveUploadFile(Colaborador::RUTA_LOGO);
             $error = 'ok';
@@ -43,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $colnewRepository = new ColaboradorRepositorio();
                 $colaborador = new Colaborador($nombre, $descripcion,  $nomFile);
                 $colnewRepository->save($colaborador);
-            } catch (DataBException $e) {
+            } catch (DataBaseException $e) {
                 $mensaje = $e->getMessage();
                 App::get('logger')->add($mensaje);
                 echo "<div class='alert alert-danger' role='alert'>
@@ -52,29 +53,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         } catch (FileException $e) {
             $mensaje = $e->getMessage();
-            App::get('logger')->add($mensaje);
+            try {
+                App::get('logger')->add($mensaje);
+            } catch (AppException $e) {
+            }
             echo "<div class='alert alert-danger' role='alert'>
             $mensaje 
            </div>";
-        } catch (AppException $e) {
+        } catch (AppException|DataBaseException $e) {
             $mensaje = $e->getMessage();
-            App::get('logger')->add($mensaje);
-            echo "<div class='alert alert-danger' role='alert'>
-                $mensaje 
-                </div>";
-        } catch (DataBException $e) {
-            $mensaje = $e->getMessage();
-            App::get('logger')->add($mensaje);
+            try {
+                App::get('logger')->add($mensaje);
+            } catch (AppException $e) {
+            }
             echo "<div class='alert alert-danger' role='alert'>
                 $mensaje 
                 </div>";
         }
     }
     if ($error != "ok") {
-        App::get('logger')->add($error);
-        echo "<div class='alert alert-danger' role='alert'>
+        try {
+            App::get('logger')->add($error);
+            echo "<div class='alert alert-danger' role='alert'>
          $error 
         </div>";
+        } catch (AppException $e) {
+        }
+
     } else {
         $mensaje = " Los archivos han sido subidos.";
         echo "<div class='alert alert-success' role='alert'>
