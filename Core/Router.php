@@ -1,5 +1,5 @@
 <?php
-namespace  bibliotecaCarmenDWS\core;
+namespace bibliotecaCarmenDWS\Core;
 class Router
 {
     private $routes;

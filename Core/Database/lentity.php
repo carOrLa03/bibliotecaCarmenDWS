@@ -1,5 +1,5 @@
 <?php
-namespace database;
+namespace bibliotecaCarmenDWS\Core\Database;
 /*Interefaz que nos permitirá definir metodos que debe tener una clase
 sin necesidad de definirlos previamente.
 Las entidades implementan está interfaz, de tal manera que todos los métodos de esta 

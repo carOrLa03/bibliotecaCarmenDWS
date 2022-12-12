@@ -1,5 +1,5 @@
 <?php
-namespace bibliotecaCarmenDWS\database;
+namespace bibliotecaCarmenDWS\Core\Database;
 class Conexion
 {
     public static function make()

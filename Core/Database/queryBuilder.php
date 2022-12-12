@@ -1,5 +1,5 @@
 <?php
-namespace database;
+namespace bibliotecaCarmenDWS\Core\Database;
 use core\App;
 abstract class QueryBuilder
 {
