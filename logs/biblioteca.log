@@ -41,3 +41,6 @@
 [2022-12-12T23:49:28.714197+01:00] name.INFO: Número máximo de prestamos modificado a 7 [] []
 [2022-12-12T23:51:35.364111+01:00] name.INFO: Número máximo de prestamos modificado a 7 [] []
 [2022-12-12T23:51:38.452902+01:00] name.INFO: Número de préstamos excedido. No puede tener más de 5 prestamos activos. [] []
+[2022-12-13T08:39:19.187690+01:00] name.INFO: El nombre no es correcto [] []
+[2022-12-13T08:40:52.097613+01:00] name.INFO: El comentario no debe estar vacío [] []
+[2022-12-13T09:20:45.938388+01:00] name.INFO: El nombre no es correcto [] []
