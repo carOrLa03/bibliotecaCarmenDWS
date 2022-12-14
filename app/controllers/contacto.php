@@ -42,30 +42,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } catch (AppException $e) {
         }
     } else {
+        try {
+            App::get('mailer')->send('Datos de Contacto', $mail, $nombre, 'Tus datos de contacto han sido enviados correctamente.');
+        } catch (AppException $e) {
+            $mensaje = $e->getMessage();
+            echo "<div class='alert alert-danger' role='alert'>
+            $error 
+            </div>";
+        }
         $mensaje = " Tus datos han sido enviados correctamente.";
         echo "<div class='alert alert-success' role='alert'>
          $mensaje 
         </div>";
 
-        try {
-            // Create the Transport
-            $transport = (new Swift_SmtpTransport('smtp.gmail.com', 587, "tls"))->setUsername('carmenorla03@gmail.com')->setPassword('ColEbc210');
-            // Create the Mailer using your created Transport
-            $mailer = new Swift_Mailer($transport);
-            // Create a message
-            $message = (new Swift_Message('Bienvenida'))
-                ->setFrom(['carmenorla03@gmail.com' => 'Carmen'])
-                ->addTo($mail, $nombre)
-                ->setBody('Te damos la bienvenida a nuestra Biblioteca Online. La más grande de Internet.');
-            // Send the message
-            $result = $mailer->send($message);
-
-        } catch (Exception $e) {
-            $mensaje = $e->getMessage();
-            echo "<div class='alert alert-danger' role='alert'>
-         $mensaje 
-        </div>";
-        }
 
     }
 }

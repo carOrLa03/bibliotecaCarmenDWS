@@ -5,10 +5,10 @@ use biblioteca\Core\Database\Conexion;
 // clase donde guardaremos los diferentes objetos en un array contenedor
 class App
 {
-    private static $contenedor = [];
+    private static array $contenedor = [];
     // función que permite añadir objetos al contenedor, an la clave del array
     // que pasamos por parámetro
-    public static function bind($clave, $valor)
+    public static function bind($clave, $valor): void
     {
         static::$contenedor[$clave] = $valor;
     }
@@ -26,6 +26,9 @@ class App
         return static::$contenedor[$clave];
     }
 
+    /**
+     * @throws AppException
+     */
     public static function getConexion()
     {
         if (!array_key_exists('conexion', static::$contenedor)) {
