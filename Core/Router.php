@@ -6,13 +6,14 @@ class Router
 {
     private $routes;
 
-    public function define($routes)
+    public function define($routes): void
     {
         $this->routes = $routes;
     }
 
     public static function load($ruta): Router
     {
+
         $router = new Router($ruta);
         require $ruta;
         return $router;

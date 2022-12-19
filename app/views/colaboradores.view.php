@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-md-6 ">
         <div class="img-box">
-          <img src="../../images/iconoslibros/pngegg(28).png" alt="pila de libros">
+          <img src="../../public/images/iconoslibros/pngegg(28).png" alt="pila de libros">
         </div>
       </div>
       <div class="col-md-6">

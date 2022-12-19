@@ -5,7 +5,7 @@ use biblioteca\App\entity\Colaborador;
 use biblioteca\App\exceptions\AppException;
 use biblioteca\App\exceptions\DataBaseException;
 use biblioteca\App\exceptions\FileException;
-use bibliotecaCarmenDWS\App\repository\ColaboradorRepositorio;
+use biblioteca\App\repository\ColaboradorRepositorio;
 use biblioteca\App\Utils\File;
 use biblioteca\Core\App;
 
@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // COLABORADORES
             try {
                 $nomFile = $file->getFileName();
-                $colnewRepository = new ColaboradorRepositorio();
+                $colnewRepository = App::getRepository(ColaboradorRepositorio::class);
                 $colaborador = new Colaborador($nombre, $descripcion,  $nomFile);
                 $colnewRepository->save($colaborador);
             } catch (DataBaseException $e) {

@@ -34,7 +34,7 @@ if (isset($_POST['enviaUusuario'])) {
         } else if (!Utils::valida_fecha($fecha)) {
             throw new MiExcepcion("La fecha no es correcta.");
         } else {
-            $usuarioRep = new UsuariosRepositorio();
+            $usuarioRep = App::getRepository(UsuariosRepositorio::class);
             $usuario = new Usuarios($nomUsuario, $apellidos, $dni, $domicilio, $poblacion, $fecha);
             $usuarioRep->save($usuario);
             $mensaje = " Usuario guardado correctamente.";
@@ -64,7 +64,7 @@ if (isset($_POST['enviaprestamo'])) {
     $max = date_add($hoy, date_interval_create_from_date_string("1 month"));
     $fMaxDev = $max->format('d/m/Y');
     try {
-        $prestamoRep = new PrestamosRepositorio();
+        $prestamoRep = App::getRepository(PrestamosRepositorio::class);
         $totalPrestUsu = $prestamoRep->totalPrestamosUsuario($codUsuario);
         $numMaxPrestamos = Utils::numMaxPrestamos();
         if($totalPrestUsu < $numMaxPrestamos){

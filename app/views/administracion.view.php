@@ -107,7 +107,7 @@
                     use biblioteca\Core\App;
 
                     try {
-                        $libroRep = new LibrosRepository();
+                        $libroRep = App::getRepository(LibrosRepository::class);
                         $arrayLibros = $libroRep->findLibrosDisponibles();
                         foreach ($arrayLibros as $libro) {
                             $codigo = $libro->getCodigo();
@@ -134,7 +134,7 @@
                 <select class="form-select form-select-lg" aria-label=".form-select-lg   example" name="codUsuario" id="validationDefault02">
                     <?php
                     try {
-                        $usuarioRepositorio = new UsuariosRepositorio();
+                        $usuarioRepositorio = App::getRepository(UsuariosRepositorio::class);
                         $arrayUsuarios = $usuarioRepositorio->findAll();
 
                         foreach ($arrayUsuarios as $usuarios) {
@@ -183,7 +183,7 @@
 <section class="mostrarTablas" id="mostrarTablas">
     <?php
     if (isset($_POST['mostrarUsuarios'])) {
-        $usuarioRepositorio = new UsuariosRepositorio();
+        $usuarioRepositorio = App::getRepository(UsuariosRepositorio::class);
         $arrayUsuarios = $usuarioRepositorio->findAll();
         ?>
         <div class="container heading_container heading_center caja-usuarios" id="caja-usuarios">
@@ -237,7 +237,7 @@
     if (isset($_POST['prestamoUsuario'])) {
         try {
             $numUsu = $_POST['codUsuario'];
-            $prestamosRep = new PrestamosRepositorio();
+            $prestamosRep = App::getRepository(PrestamosRepositorio::class);
             $arrayPrestamos = $prestamosRep->prestamosUsuarios($numUsu);
             if (empty($arrayPrestamos)) {
                 throw new MiExcepcion("No tiene prestamos.");
@@ -292,7 +292,7 @@
     }
 
     if (isset($_POST['mostrarPrestamos'])) {
-        $prestamosRep = new PrestamosRepositorio();
+        $prestamosRep = App::getRepository(PrestamosRepositorio::class);
         $arrayPrestamos = $prestamosRep->findAll();
         ?>
         <div class="container heading_container heading_center caja-prestamos" id="caja-prestamos">
@@ -373,7 +373,7 @@
     if (isset($_POST['enviaDevolucion'])) {
         $nuevoDato = $_POST['devolucion'];
         $numRegistro = $_POST['numPed'];
-        $prestamosRep = new PrestamosRepositorio();
+        $prestamosRep = App::getRepository(PrestamosRepositorio::class);
         $resultado = $prestamosRep->updateRegistro($nuevoDato, $numRegistro);
         echo "<div class='alert alert-success' role='alert'>
             $resultado 
@@ -381,7 +381,7 @@
     }
 
     if (isset($_POST['mostrarMensajes'])) {
-        $mensajesRep = new MensajesRepository();
+        $mensajesRep = App::getRepository(MensajesRepository::class);
         $arrayMensajes = $mensajesRep->findAll();
 
     ?>

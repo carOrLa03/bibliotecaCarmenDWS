@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         try {
             $error = 'ok';
-            $mensajeNuevo = new MensajesRepository();
+            $mensajeNuevo = App::getRepository(MensajesRepository::class);
             $mensaje = new Mensajes($nombre, $mail, $textarea);
             $mensajeNuevo->save($mensaje);
         } catch (DataBaseException $e) {
