@@ -22,6 +22,12 @@ return [
     ],
     'routes'=>[
         'filename'=> 'routes.php'
+    ],
+    'pdf' =>[
+        'pdf_creator' => 'PDF_CREATOR',
+        'author' => 'Carmen',
+        'title' => 'Devolucion libro',
+
     ]
 
 ];
