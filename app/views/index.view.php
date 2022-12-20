@@ -106,7 +106,7 @@ require_once __DIR__ . "/partials/menu.part.php";
         <div class="col-md-6  ">
           <div class="box ">
             <div class="img-box">
-              <img src="/public/images/libro1.jpg" alt="">
+              <img src="images/libro1.jpg" alt="">
             </div>
             <div class="detail-box">
               <h5>
@@ -124,7 +124,7 @@ require_once __DIR__ . "/partials/menu.part.php";
         <div class="col-md-6  ">
           <div class="box ">
             <div class="img-box">
-              <img src="/public/images/maquinaescribir.jpg" alt="">
+              <img src="images/maquinaescribir.jpg" alt="">
             </div>
             <div class="detail-box">
               <h5>
@@ -171,7 +171,7 @@ require_once __DIR__ . "/partials/menu.part.php";
               </p>
             </div>
             <div class="img-box">
-              <img src="../../public/images/chicaLeyendo.jpg" alt="chica" class="box-img cliente_leyendo">
+              <img src="images/chicaLeyendo.jpg" alt="chica" class="box-img cliente_leyendo">
             </div>
           </div>
         </div>
@@ -189,7 +189,7 @@ require_once __DIR__ . "/partials/menu.part.php";
               </p>
             </div>
             <div class="img-box">
-              <img src="/public/images/tioLeyendo.jpg" alt="" class="box-img cliente_leyendo">
+              <img src="images/tioLeyendo.jpg" alt="" class="box-img cliente_leyendo">
             </div>
           </div>
         </div>

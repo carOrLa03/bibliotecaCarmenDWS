@@ -19,5 +19,9 @@ return [
         'username'=>'Carmen',
         'email'=>'carmenorla03@gmail.com',
         'pass'=>'yccfuzpnqgfxmvug',
+    ],
+    'routes'=>[
+        'filename'=> 'routes.php'
     ]
+
 ];

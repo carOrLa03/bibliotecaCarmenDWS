@@ -13,8 +13,7 @@ class Router
 
     public static function load($ruta): Router
     {
-
-        $router = new Router($ruta);
+        $router = new Router();
         require $ruta;
         return $router;
     }

@@ -2,12 +2,12 @@
 /** @var string $router */
 $router->define(
     [
-        '' => 'App/controllers/index.php',
-        'home' => 'App/controllers/index.php',
-        'libros' => 'App/controllers/libros.php',
-        'colaboradores' => 'App/controllers/colaboradores.php',
-        'contacto' => 'App/controllers/contacto.php',
-        'zonaPersonal' => 'App/controllers/zonaPersonal.php',
-        'administracion' => 'App/controllers/administracion.php'
+        '' => '../app/controllers/index.php',
+        'home' => '../app/controllers/index.php',
+        'libros' => '../app/controllers/libros.php',
+        'colaboradores' => '../app/controllers/colaboradores.php',
+        'contacto' => '../app/controllers/contacto.php',
+        'zonaPersonal' => '../app/controllers/zonaPersonal.php',
+        'administracion' => '../app/controllers/administracion.php'
     ]
 );

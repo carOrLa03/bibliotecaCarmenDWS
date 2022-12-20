@@ -8,7 +8,7 @@ use biblioteca\Core\App;
 
 require_once __DIR__ . "/../views/partials/menu.part.php";
 require_once __DIR__ . "/../../core/bootstrap.php";
-require_once './vendor/autoload.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 $nombre = "";
 $mail = "";
