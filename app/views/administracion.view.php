@@ -390,6 +390,7 @@
            </div>";
         try {
             //$fecha_Prestamo, $nombre_Usuario, $nuevoDato
+
             App::get('pdf')->new_document();
         } catch (AppException $e) {
             $error = $e->getMessage();
