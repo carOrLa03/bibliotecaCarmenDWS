@@ -40,7 +40,7 @@ class Pdf
 
         $this->pdf->writeHTML($html,true,false,true,false,'');
         $this->pdf->lastPage();
-        $this->pdf->Output('Dev.pdf', 'I');
+        $this->pdf->Output('Dev.pdf');
 
 
     }
