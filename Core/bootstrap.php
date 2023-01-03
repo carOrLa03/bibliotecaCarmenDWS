@@ -4,6 +4,7 @@ require_once __DIR__ . "/../vendor/autoload.php";
 use biblioteca\App\exceptions\AppException;
 use biblioteca\App\Utils\MyLog;
 use biblioteca\App\Utils\MyMail;
+use biblioteca\app\utils\Pdf;
 use biblioteca\Core\App;
 use biblioteca\Core\Router;
 
@@ -24,3 +25,6 @@ App::bind('logger', $logger);
 
 $mailer = new MyMail();
 App::bind('mailer', $mailer);
+
+$pdf = new Pdf();
+App::bind('pdf', $pdf);

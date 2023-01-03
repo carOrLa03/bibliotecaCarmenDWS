@@ -106,6 +106,11 @@
                     use biblioteca\App\repository\UsuariosRepositorio;
                     use biblioteca\Core\App;
 
+                    //VARIABLES PARA EL PDF
+                    $nombre_Usuario = "";
+                    $fecha_Prestamo = "";
+                    $nombre_Libro = "";
+
                     try {
                         $libroRep = App::getRepository(LibrosRepository::class);
                         $arrayLibros = $libroRep->findLibrosDisponibles();
@@ -140,6 +145,7 @@
                         foreach ($arrayUsuarios as $usuarios) {
                             $codigo = $usuarios->getCodigo();
                             $nomUs = $usuarios->getNombre();
+                            $nombreUsuario = $nomUs;
 
                             echo <<< EOT
                                     <option value="$codigo">$codigo -- $nomUs</option>
@@ -224,7 +230,8 @@
                                 <th><form action="#" method="post">
                                 <input type="submit" name="prestamoUsuario" value="Ver Prestamos" id="verPrestamoUsu" class="btn btn-warning">
                                 <input type="hidden" name="codUsuario" value ="$codUsuario">
-                                </form></for></th>
+                                <input type="hidden" name="nombreUsuario" value ="$nombre">
+                                </form></th>
                             </tr>
                         EOT;
                     }
@@ -271,6 +278,11 @@
                                             <th>$fMaxDev</th>
                                             <th>$devolucion</th>
                                             <th>$devuelto</th>
+                                            <th><form action="#" method="post">
+                                                <input type="submit" name="modificaDevolucion" value="Devolucion Prestamo" id="modificaPrestamo" class="btn btn-warning">
+                                                <input type="hidden" name="nombreUsuario" value ="$nombreUsuario">
+                                                <input type="hidden" name="fechaPrestamo" value ="$salida">
+                                            </form></th>
                                         </tr>
                                     EOT;
                         }
@@ -319,6 +331,8 @@
                         $devolucion = $prestamo->getFDevolucion();
                         $devuelto = $prestamo->getDevuelto();
 
+                        $fecha_Prestamo = $salida;
+
                         echo <<< EOT
                             <tr>
                                 <th>$codLibro</th>
@@ -361,7 +375,9 @@
                 <div class="col-md-4">
                     <label for="fDev" class="form-label">Fecha Devolución</label>
                     <input type="text" class="form-control" id="fDev" name="devolucion" required>
+                    <input type="hidden" name="fechaPrestamo" value ="<?php $salida ?>">
                 </div>
+
                 <div class="col-12">
                     <button class="btn btn-warning" type="submit" id="enviaDevolucion" name="enviaDevolucion">Modifica</button>
                 </div>
@@ -373,11 +389,19 @@
     if (isset($_POST['enviaDevolucion'])) {
         $nuevoDato = $_POST['devolucion'];
         $numRegistro = $_POST['numPed'];
+
         $prestamosRep = App::getRepository(PrestamosRepositorio::class);
         $resultado = $prestamosRep->updateRegistro($nuevoDato, $numRegistro);
         echo "<div class='alert alert-success' role='alert'>
             $resultado 
            </div>";
+        try {
+            //$fecha_Prestamo, $nombre_Usuario, $nuevoDato
+            App::get('pdf')->new_document();
+        } catch (AppException $e) {
+        }
+
+
     }
 
     if (isset($_POST['mostrarMensajes'])) {

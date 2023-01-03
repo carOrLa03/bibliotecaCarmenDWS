@@ -46,10 +46,10 @@ class Utils{
 
     static function modificaNumMaxPrestamos($numMaxPrestamos){
         $arrayNum = array('maxprestamos'=>$numMaxPrestamos);
-        file_put_contents('Core/Database/numMaxPrestamos.json', json_encode($arrayNum));
+        file_put_contents('../Core/Database/numMaxPrestamos.json', json_encode($arrayNum));
     }
     static function numMaxPrestamos(){
-        $numMPrestamos = json_decode(file_get_contents('Core/Database/numMaxPrestamos.json'));
+        $numMPrestamos = json_decode(file_get_contents('../Core/Database/numMaxPrestamos.json'));
         return $numMPrestamos->{'maxprestamos'};
     }
 }

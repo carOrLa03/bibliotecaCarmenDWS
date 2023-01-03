@@ -27,6 +27,11 @@ return [
         'pdf_creator' => 'PDF_CREATOR',
         'author' => 'Carmen',
         'title' => 'Devolucion libro',
+        'paginas'=>1,
+        'font'=>'helvetica',
+        'size_font'=>'12',
+        'logo'=>'./public/images/book-fill.svg',
+        'imagen'=>'./public/images/libro1.jpg'
 
     ]
 

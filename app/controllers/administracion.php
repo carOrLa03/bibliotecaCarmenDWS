@@ -75,7 +75,7 @@ if (isset($_POST['enviaprestamo'])) {
              $mensaje 
             </div>";
         }else{
-            $mensaje = "Número de préstamos excedido. No puede tener más de 5 prestamos activos.";
+            $mensaje = "Número de préstamos excedido. No puede tener más de $numMaxPrestamos prestamos activos.";
             App::get('logger')->add($mensaje);
             echo "<div class='alert alert-danger' role='alert'>
              $mensaje 
