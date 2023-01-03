@@ -145,7 +145,6 @@
                         foreach ($arrayUsuarios as $usuarios) {
                             $codigo = $usuarios->getCodigo();
                             $nomUs = $usuarios->getNombre();
-                            $nombreUsuario = $nomUs;
 
                             echo <<< EOT
                                     <option value="$codigo">$codigo -- $nomUs</option>
@@ -186,6 +185,7 @@
         </form>
     </div>
 </section>
+<!-- SECCION QUE MUESTRA LAS DIFERENTES TABLAS CON LOS DATOS DE LA BBDD-->
 <section class="mostrarTablas" id="mostrarTablas">
     <?php
     if (isset($_POST['mostrarUsuarios'])) {
@@ -230,7 +230,6 @@
                                 <th><form action="#" method="post">
                                 <input type="submit" name="prestamoUsuario" value="Ver Prestamos" id="verPrestamoUsu" class="btn btn-warning">
                                 <input type="hidden" name="codUsuario" value ="$codUsuario">
-                                <input type="hidden" name="nombreUsuario" value ="$nombre">
                                 </form></th>
                             </tr>
                         EOT;
@@ -278,11 +277,6 @@
                                             <th>$fMaxDev</th>
                                             <th>$devolucion</th>
                                             <th>$devuelto</th>
-                                            <th><form action="#" method="post">
-                                                <input type="submit" name="modificaDevolucion" value="Devolucion Prestamo" id="modificaPrestamo" class="btn btn-warning">
-                                                <input type="hidden" name="nombreUsuario" value ="$nombreUsuario">
-                                                <input type="hidden" name="fechaPrestamo" value ="$salida">
-                                            </form></th>
                                         </tr>
                                     EOT;
                         }
@@ -375,7 +369,6 @@
                 <div class="col-md-4">
                     <label for="fDev" class="form-label">Fecha Devolución</label>
                     <input type="text" class="form-control" id="fDev" name="devolucion" required>
-                    <input type="hidden" name="fechaPrestamo" value ="<?php $salida ?>">
                 </div>
 
                 <div class="col-12">
@@ -399,6 +392,10 @@
             //$fecha_Prestamo, $nombre_Usuario, $nuevoDato
             App::get('pdf')->new_document();
         } catch (AppException $e) {
+            $error = $e->getMessage();
+            echo "<div class='alert alert-danger' role='alert'>
+            $error 
+           </div>";
         }
 
 
