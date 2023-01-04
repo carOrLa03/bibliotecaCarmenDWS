@@ -16,62 +16,62 @@
     </div>
 
     <!-- FORMULARIO DE REGISTRO DE USUARIOS -->
+    <?php
+                    use biblioteca\App\exceptions\AppException;
+                    use biblioteca\App\exceptions\DataBaseException;
+                    use biblioteca\App\exceptions\MiExcepcion;
+                    use biblioteca\App\repository\LibrosRepository;
+                    use biblioteca\App\repository\MensajesRepository;
+                    use biblioteca\App\repository\PrestamosRepositorio;
+                    use biblioteca\App\repository\UsuariosRepositorio;
+                    use biblioteca\Core\App;
+
+    if(isset($_POST['envia_domicilio'])) {
+    $nombre = $_POST['nomUsuario'];
+    $apellidos = $_POST['apellidos'];
+    $dni = $_POST['dni'];
+    $domicilio = $_POST['domicilio'];
+    $mymappi_url = "https://api.mymappi.com/v2/places/autocomplete?apikey=90a772c3-6d80-4b06-8d44-e14118bf62dc&q=" . urlencode($domicilio) . "&auto_focus=true";
+    $mymappi_json = file_get_contents($mymappi_url);
+    $mymappi_array = json_decode($mymappi_json, true);
+    ?>
     <div class="container form-usuario noVer" id="form-usuario">
         <form class="row g-3" action="#" method="post">
             <div class="col-md-4">
                 <label for="validationDefault01" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="validationDefault01" name="nomUsuario" required>
+                <input type="text" class="form-control" id="validationDefault01" name="nomUsuario" required value=<?php echo $nombre ?? '' ?>>
             </div>
             <div class="col-md-4">
                 <label for="validationDefault02" class="form-label">Apellidos</label>
-                <input type="text" class="form-control" id="validationDefault02" name="apellidos" required>
+                <input type="text" class="form-control" id="validationDefault02" name="apellidos" required value=<?php echo $apellidos ?? '' ?>>
             </div>
             <div class="col-md-4">
                 <label for="validationDefault02" class="form-label">DNI</label>
-                <input type="text" class="form-control" id="validationDefault02" name="dni" required>
+                <input type="text" class="form-control" id="validationDefault02" name="dni" required value=<?php echo $dni ?? '' ?>>
             </div>
                 <div class="col-md-6">
                     <label for="validationDefault03" class="form-label">Domicilio</label>
-                    <input type="text" class="form-control" id="validationDefault03" name="domicilio" required>
+                    <input type="text" class="form-control" id="validationDefault03" name="domicilio" required value=<?php echo $domicilio ?? '' ?>>
                 </div>
             <div class="col-md-6">
                 <button class="btn btn-warning" type="submit" id="domicilio" name="envia_domicilio">Comprueba Poblacion</button>
             </div>
-            <?php
-            if(isset($_POST['envia_domicilio'])) {
-            $domicilio = $_POST['domicilio'];
-            $mymappi_url = "https://api.mymappi.com/v2/places/autocomplete?apikey=90a772c3-6d80-4b06-8d44-e14118bf62dc&q=" . urlencode($domicilio) . "&auto_focus=true";
-            $mymappi_json = file_get_contents($mymappi_url);
-            $mymappi_array = json_decode($mymappi_json, true);
-            ?>
+
             <div class="col-md-6">
                 <label for="validationDefault04" class="form-label">Población</label>
                 <select name="poblacion" id="validationDefault04">
                     <?php
                         foreach ($mymappi_array['data'] as $valor) {
                             echo <<< EOT
-                                <option value="$valor[locality]">$valor[locality]</option>
+                                <option value="$valor[locality]">$valor[locality], $valor[region]</option>
                             EOT;
                         }
-
                     ?>
                 </select>
-            </div>
-                <div class="col-md-6">
-                    <label for="validationDefault05" class="form-label">Provincia</label>
-                    <select name="provincia" id="validationDefault05">
-                        <?php
-                            foreach ($mymappi_array['data'] as $valor) {
-                                echo <<< EOT
-                                <option value="$valor[region]">$valor[region]</option>
-                            EOT;
-                            }
-                        ?>
-                    </select>
-                </div>
-                <?php
-            }
+<?php
+}
  ?>
+
             <div class="col-md-6">
                 <label for="validationDefault06" class="form-label">Fecha de Nacimiento</label>
                 <input type="text" class="form-control" id="validationDefault06" name="fecha_nac">
@@ -120,20 +120,6 @@
             <div class="col-md-6">
                 <select class="form-select form-select-lg" aria-label=".form-select-lg example" name="codLibro" id="validationCustom01">
                     <?php
-
-                    use biblioteca\App\exceptions\AppException;
-                    use biblioteca\App\exceptions\DataBaseException;
-                    use biblioteca\App\exceptions\MiExcepcion;
-                    use biblioteca\App\repository\LibrosRepository;
-                    use biblioteca\App\repository\MensajesRepository;
-                    use biblioteca\App\repository\PrestamosRepositorio;
-                    use biblioteca\App\repository\UsuariosRepositorio;
-                    use biblioteca\Core\App;
-
-                    //VARIABLES PARA EL PDF
-                    $nombre_Usuario = "";
-                    $fecha_Prestamo = "";
-                    $nombre_Libro = "";
 
                     try {
                         $libroRep = App::getRepository(LibrosRepository::class);
