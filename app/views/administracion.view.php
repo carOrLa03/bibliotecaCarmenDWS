@@ -30,26 +30,51 @@
                 <label for="validationDefault02" class="form-label">DNI</label>
                 <input type="text" class="form-control" id="validationDefault02" name="dni" required>
             </div>
-
-            <div class="col-md-6">
-                <label for="validationDefault03" class="form-label">Domicilio</label>
-                <input type="text" class="form-control" id="validationDefault03" name="domicilio" required>
-            </div>
-            <div class="col-md-6">
-                <label for="validationDefault03" class="form-label">Población</label>
-                <input type="text" class="form-control" id="validationDefault03" name="poblacion" required>
-            </div>
-            <div class="col-md-6">
-                <label for="validationDefault05" class="form-label">Fecha de Nacimiento</label>
-                <input type="text" class="form-control" id="validationDefault05" name="fecha_nac" required>
-            </div>
-            <div class="col-12">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-                    <label class="form-check-label" for="invalidCheck2">
-                        Agree to terms and conditions
-                    </label>
+                <div class="col-md-6">
+                    <label for="validationDefault03" class="form-label">Domicilio</label>
+                    <input type="text" class="form-control" id="validationDefault03" name="domicilio" required>
                 </div>
+            <div class="col-md-6">
+                <button class="btn btn-warning" type="submit" id="domicilio" name="envia_domicilio">Comprueba Poblacion</button>
+            </div>
+            <?php
+            if(isset($_POST['envia_domicilio'])) {
+            $domicilio = $_POST['domicilio'];
+            $mymappi_url = "https://api.mymappi.com/v2/places/autocomplete?apikey=90a772c3-6d80-4b06-8d44-e14118bf62dc&q=" . urlencode($domicilio) . "&auto_focus=true";
+            $mymappi_json = file_get_contents($mymappi_url);
+            $mymappi_array = json_decode($mymappi_json, true);
+            ?>
+            <div class="col-md-6">
+                <label for="validationDefault04" class="form-label">Población</label>
+                <select name="poblacion" id="validationDefault04">
+                    <?php
+                        foreach ($mymappi_array['data'] as $valor) {
+                            echo <<< EOT
+                                <option value="$valor[locality]">$valor[locality]</option>
+                            EOT;
+                        }
+
+                    ?>
+                </select>
+            </div>
+                <div class="col-md-6">
+                    <label for="validationDefault05" class="form-label">Provincia</label>
+                    <select name="provincia" id="validationDefault05">
+                        <?php
+                            foreach ($mymappi_array['data'] as $valor) {
+                                echo <<< EOT
+                                <option value="$valor[region]">$valor[region]</option>
+                            EOT;
+                            }
+                        ?>
+                    </select>
+                </div>
+                <?php
+            }
+ ?>
+            <div class="col-md-6">
+                <label for="validationDefault06" class="form-label">Fecha de Nacimiento</label>
+                <input type="text" class="form-control" id="validationDefault06" name="fecha_nac">
             </div>
             <div class="col-12">
                 <button class="btn btn-warning" type="submit" id="enviaUusuario" name="enviaUusuario">Envía</button>
@@ -67,7 +92,6 @@
                 <label for="validationDefault02" class="form-label">Autor</label>
                 <input type="text" class="form-control" id="validationDefault02" name="autor" required>
             </div>
-
             <div class="col-md-6">
                 <label for="validationDefault03" class="form-label">Genero</label>
                 <input type="text" class="form-control" id="validationDefault03" name="genero" required>
@@ -136,7 +160,7 @@
                 </select>
             </div>
             <div class="col-md-6">
-                <select class="form-select form-select-lg" aria-label=".form-select-lg   example" name="codUsuario" id="validationDefault02">
+                <select class="form-select form-select-lg" aria-label=".form-select-lg example" name="codUsuario" id="validationDefault02">
                     <?php
                     try {
                         $usuarioRepositorio = App::getRepository(UsuariosRepositorio::class);
